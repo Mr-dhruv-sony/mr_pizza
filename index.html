@@ -32,6 +32,9 @@
           <a href="tel:+919128256430" class="call-btn-pill" title="Direct Phone Call">
             <span>📞 Call</span>
           </a>
+          <a href="admin.html" class="call-btn-pill" title="Admin Portal" style="background: rgba(255,77,46,0.1); color: var(--brand-primary); font-size: 0.78rem;">
+            <span>🔐 Admin</span>
+          </a>
         </div>
       </div>
 
@@ -255,6 +258,31 @@
     </div>
   </div>
 
+  <!-- ================= 13. Order Placed / WhatsApp Fallback Modal ================= -->
+  <div class="customizer-modal-overlay" id="orderSuccessOverlay" style="display:none;">
+    <div class="category-jump-sheet" style="text-align: center; padding: 26px 20px; max-width: 440px; margin: auto;">
+      <div style="font-size: 3rem; margin-bottom: 8px;">🎉</div>
+      <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 6px; color: var(--text-main);">Order Placed Successfully!</h2>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 12px;">
+        Order ID: <strong id="successOrderId" style="color: var(--brand-primary); font-family: monospace; font-size: 1rem;">#MRP-000000</strong>
+      </p>
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; font-size: 0.82rem; color: var(--text-main);">
+        🛵 Sending directly to: <strong>+91 8986187044</strong>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a id="btnDirectWhatsApp" href="#" target="_blank" class="btn-whatsapp-order-cta" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.98rem;">
+          <span>💬 Open WhatsApp Web</span>
+        </a>
+        <a id="btnDirectWhatsAppApp" href="#" target="_blank" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.92rem; padding: 12px; border-radius: 12px; background: rgba(37, 211, 102, 0.15); color: #25d366; font-weight: 700; border: 1px solid rgba(37, 211, 102, 0.3);">
+          <span>📱 Open WhatsApp Mobile / App</span>
+        </a>
+      </div>
+      <button id="btnCloseSuccessModal" style="margin-top: 14px; background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.85rem; padding: 8px; font-weight: 600;">
+        ✕ Back to Menu
+      </button>
+    </div>
+  </div>
+
   <!-- ================= Toast Notification ================= -->
   <div class="app-toast" id="appToast">
     <span id="toastIcon">🍕</span>
@@ -262,7 +290,8 @@
   </div>
 
   <!-- Scripts -->
-  <script src="menu-data.js"></script>
-  <script src="app.js"></script>
+  <script charset="UTF-8" src="menu-data.js"></script>
+  <script charset="UTF-8" src="firebase-config.js"></script>
+  <script charset="UTF-8" src="app.js"></script>
 </body>
 </html>

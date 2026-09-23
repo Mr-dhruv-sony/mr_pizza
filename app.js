@@ -400,6 +400,7 @@
   }
 
   // ========== WhatsApp Order Submission ==========
+  // ========== WhatsApp Order Submission ==========
   function submitOrder() {
     const name = document.getElementById('orderCustName').value.trim();
     const phone = document.getElementById('orderCustPhone').value.trim();
@@ -416,33 +417,112 @@
       return;
     }
 
+    const orderId = `MRP-${Date.now().toString().slice(-6)}`;
+    const timestamp = Date.now();
+
+    // 1. Save order in background (non-blocking so popups are never blocked)
+    const orderObj = {
+      id: orderId,
+      createdAt: new Date().toISOString(),
+      timestamp: timestamp,
+      status: 'new',
+      customer: {
+        name: name,
+        phone: phone,
+        address: address,
+        notes: notes || ''
+      },
+      items: cart.map(c => ({
+        name: c.name,
+        size: c.size || '',
+        qty: c.qty,
+        price: c.price,
+        total: c.price * c.qty,
+        icon: c.icon || '🍕'
+      })),
+      subtotal: subtotal,
+      deliveryFee: 0,
+      totalAmount: subtotal,
+      source: 'web-cart'
+    };
+
+    if (typeof MrPizzaDB !== 'undefined' && MrPizzaDB.saveOrder) {
+      MrPizzaDB.saveOrder(orderObj).catch(e => console.warn('Order DB save notice:', e));
+    }
+
+    // 2. Build WhatsApp message using actual UTF-8 emoji characters
     const itemLines = cart.map((c, i) => {
-      const sizeStr = c.size ? ` (${c.size.charAt(0).toUpperCase() + c.size.slice(1)})` : '';
-      return `${i + 1}. ${c.icon} *${c.name}${sizeStr}* × ${c.qty} = ₹${c.price * c.qty}`;
+      const sizeStr = c.size ? ' (' + c.size.charAt(0).toUpperCase() + c.size.slice(1) + ')' : '';
+      return (i + 1) + '. ' + (c.icon || '🍕') + ' *' + c.name + sizeStr + '* x ' + c.qty + ' = Rs.' + (c.price * c.qty);
     }).join('\n');
 
-    const message =
-`🍕 *NEW ORDER – MR PIZZERIA*
-*Shivhari Food Delivery, Bikramganj*
-━━━━━━━━━━━━━━━━━━━━
-👤 *Name:* ${name}
-📞 *Phone:* ${phone}
-📍 *Address:* ${address}
-${notes ? `📝 *Note:* ${notes}\n` : ''}━━━━━━━━━━━━━━━━━━━━
-📋 *ORDER ITEMS:*
-${itemLines}
-━━━━━━━━━━━━━━━━━━━━
-💰 *Total Amount: ₹${subtotal}*
-🛵 *Delivery: Bikramganj (25 min)*
-━━━━━━━━━━━━━━━━━━━━
-Please confirm my order & estimated time 🙏`;
+    const lines = [
+      '🍕 *NEW ORDER - MR PIZZERIA*',
+      '*Shivhari Food Delivery, Bikramganj*',
+      '----------------------------------------',
+      '🆔 *Order ID:* #' + orderId,
+      '👤 *Customer Name:* ' + name,
+      '📞 *Phone Number:* ' + phone,
+      '📍 *Delivery Address:* ' + address,
+      notes ? '📝 *Note:* ' + notes : null,
+      '----------------------------------------',
+      '📋 *ORDER ITEMS:*',
+      itemLines,
+      '----------------------------------------',
+      '💰 *Total Amount: Rs.' + subtotal + '*',
+      '🛵 *Delivery: Bikramganj (20-25 min)*',
+      '💳 *Payment: UPI / QR Code / COD*',
+      '----------------------------------------',
+      '🙏 *Please confirm my order & share UPI QR for payment.*'
+    ].filter(Boolean).join('\n');
 
-    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+    const adminNumber = '918986187044';
+    const encoded = encodeURIComponent(lines);
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    const waAppUrl = 'https://api.whatsapp.com/send?phone=' + adminNumber + '&text=' + encoded;
+    const waWebUrl = 'https://web.whatsapp.com/send?phone=' + adminNumber + '&text=' + encoded;
+
+    // 3. Clear cart and close cart drawer
     cart = [];
     saveCart();
     updateCartBar();
     cartSheetOverlay.classList.remove('open');
-    showToast('Order sent via WhatsApp! 🎉');
+
+    // 4. Update Fallback Modal buttons
+    const orderSuccessOverlay = document.getElementById('orderSuccessOverlay');
+    const successOrderId = document.getElementById('successOrderId');
+    const btnDirectWhatsApp = document.getElementById('btnDirectWhatsApp');
+    const btnDirectWhatsAppApp = document.getElementById('btnDirectWhatsAppApp');
+    const btnCloseSuccessModal = document.getElementById('btnCloseSuccessModal');
+
+    if (orderSuccessOverlay && successOrderId && btnDirectWhatsApp) {
+      successOrderId.textContent = '#' + orderId;
+      btnDirectWhatsApp.href = waWebUrl;
+      if (btnDirectWhatsAppApp) {
+        btnDirectWhatsAppApp.href = waAppUrl;
+      }
+      orderSuccessOverlay.style.display = 'flex';
+
+      if (btnCloseSuccessModal) {
+        btnCloseSuccessModal.onclick = () => { orderSuccessOverlay.style.display = 'none'; };
+      }
+      orderSuccessOverlay.onclick = (e) => {
+        if (e.target === orderSuccessOverlay) orderSuccessOverlay.style.display = 'none';
+      };
+    }
+
+    // 5. Trigger WhatsApp Redirection directly to +918986187044
+    if (isMobile) {
+      window.location.href = waAppUrl;
+    } else {
+      const popup = window.open(waWebUrl, '_blank');
+      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        window.location.href = waWebUrl;
+      }
+    }
+
+    showToast(`Order #${orderId} placed! Opening WhatsApp... \u{1F389}`);
   }
 
   // ========== Toast ==========
@@ -470,7 +550,7 @@ Please confirm my order & estimated time 🙏`;
 
   // ========== Local Storage ==========
   function saveCart() {
-    try { localStorage.setItem('mrp_cart_v2', JSON.stringify(cart)); } catch (e) {}
+    try { localStorage.setItem('mrp_cart_v2', JSON.stringify(cart)); } catch (e) { }
   }
 
   function loadCart() {

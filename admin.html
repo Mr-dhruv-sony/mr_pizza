@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Admin Portal — Mr Pizzeria</title>
+  <meta name="description" content="Mr Pizzeria Admin Dashboard — Order Management">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0d0d16">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- ==================== LOGIN SCREEN ==================== -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-bg-glow"></div>
+    <div class="login-card">
+      <div class="login-logo-wrap">
+        <div class="login-logo-emoji">🍕</div>
+        <div class="login-logo-ring"></div>
+      </div>
+      <h1 class="login-title">Mr Pizzeria</h1>
+      <p class="login-sub">Admin Portal</p>
+
+      <div class="pin-dots-row" id="pinDots">
+        <span class="pin-dot" id="dot0"></span>
+        <span class="pin-dot" id="dot1"></span>
+        <span class="pin-dot" id="dot2"></span>
+        <span class="pin-dot" id="dot3"></span>
+      </div>
+
+      <div class="pin-error" id="pinError">Incorrect PIN. Try again.</div>
+
+      <div class="pin-keypad">
+        <button class="key-btn" data-key="1">1</button>
+        <button class="key-btn" data-key="2">2</button>
+        <button class="key-btn" data-key="3">3</button>
+        <button class="key-btn" data-key="4">4</button>
+        <button class="key-btn" data-key="5">5</button>
+        <button class="key-btn" data-key="6">6</button>
+        <button class="key-btn" data-key="7">7</button>
+        <button class="key-btn" data-key="8">8</button>
+        <button class="key-btn" data-key="9">9</button>
+        <button class="key-btn key-clear" data-key="clear">&#9003;</button>
+        <button class="key-btn" data-key="0">0</button>
+        <button class="key-btn key-enter" data-key="enter">&#10003;</button>
+      </div>
+
+      <p class="pin-hint">Default PIN: <strong>1234</strong></p>
+    </div>
+  </div>
+
+  <!-- ==================== DASHBOARD ==================== -->
+  <div class="dashboard" id="dashboard" style="display:none;">
+
+    <!-- Top Bar -->
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <span class="topbar-logo">&#127829;</span>
+        <div>
+          <div class="topbar-title">Mr Pizzeria</div>
+          <div class="topbar-sub" id="adminDate">Admin Dashboard</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-clock" id="adminClock">--:-- --</div>
+        <button class="btn-topbar-icon" id="btnOpenSettings" title="Settings">&#9881;</button>
+        <button class="btn-topbar-icon btn-logout-icon" id="btnLogout" title="Logout">&#8651;</button>
+      </div>
+    </header>
+
+    <!-- Firebase Config Warning -->
+    <div class="config-warning" id="configWarning" style="display:none;">
+      Firebase not configured yet. Open firebase-config.js and fill in apiKey, messagingSenderId, and appId.
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card stat-new">
+        <div class="stat-icon">&#128308;</div>
+        <div class="stat-val" id="statNew">0</div>
+        <div class="stat-label">New Orders</div>
+      </div>
+      <div class="stat-card stat-prep">
+        <div class="stat-icon">&#128308;</div>
+        <div class="stat-val" id="statPrep">0</div>
+        <div class="stat-label">Preparing</div>
+      </div>
+      <div class="stat-card stat-done">
+        <div class="stat-icon">&#9989;</div>
+        <div class="stat-val" id="statDone">0</div>
+        <div class="stat-label">Delivered</div>
+      </div>
+      <div class="stat-card stat-revenue">
+        <div class="stat-icon">&#128176;</div>
+        <div class="stat-val" id="statRevenue">&#8377;0</div>
+        <div class="stat-label">Today Revenue</div>
+      </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="order-tabs-wrap">
+      <div class="order-tabs">
+        <button class="tab-btn active" data-tab="new">
+          New <span class="tab-badge" id="badgeNew">0</span>
+        </button>
+        <button class="tab-btn" data-tab="preparing">
+          Preparing <span class="tab-badge" id="badgePrep">0</span>
+        </button>
+        <button class="tab-btn" data-tab="delivered">
+          Done <span class="tab-badge" id="badgeDone">0</span>
+        </button>
+        <button class="tab-btn" data-tab="cancelled">
+          Cancelled <span class="tab-badge" id="badgeCancelled">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Orders Panel -->
+    <main class="orders-panel" id="ordersPanel">
+      <div class="empty-orders">
+        <div class="empty-icon">&#128225;</div>
+        <p>Connecting to Firebase...</p>
+      </div>
+    </main>
+
+    <!-- Add Manual Order FAB -->
+    <div class="fab-wrap">
+      <button class="fab-btn" id="btnAddManual" title="Add Manual Order">+</button>
+    </div>
+
+  </div>
+
+  <!-- ==================== New Order Toast ==================== -->
+  <div class="new-order-toast" id="newOrderToast">
+    <div class="toast-bell">&#128276;</div>
+    <div>
+      <div class="toast-title">New Order!</div>
+      <div class="toast-sub" id="toastOrderInfo">Someone just ordered</div>
+    </div>
+    <button class="toast-close" id="btnCloseToast">&#10005;</button>
+  </div>
+
+  <!-- ==================== Settings Modal ==================== -->
+  <div class="modal-overlay" id="settingsOverlay" style="display:none;">
+    <div class="settings-modal">
+      <div class="modal-header">
+        <h3>Settings</h3>
+        <button class="btn-close-modal" id="btnCloseSettings">&#10005;</button>
+      </div>
+      <div class="modal-body">
+        <div class="settings-section">
+          <label class="settings-label">Change Admin PIN</label>
+          <input type="number" id="newPinInput" class="settings-input" placeholder="Enter new 4-digit PIN">
+          <button class="btn-save-pin" id="btnSavePIN">Save New PIN</button>
+        </div>
+        <div class="settings-divider"></div>
+        <div class="settings-section">
+          <label class="settings-label">Firebase Connection</label>
+          <div class="firebase-status-pill" id="fbStatusPill">Checking...</div>
+        </div>
+        <div class="settings-divider"></div>
+        <div class="settings-section">
+          <label class="settings-label">Quick Links</label>
+          <a href="index.html" class="settings-link-btn" target="_blank">Open Customer Menu</a>
+          <a href="https://console.firebase.google.com/u/0/project/mrpizza-30827/database" class="settings-link-btn" target="_blank">Firebase Console</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Manual Order Modal ==================== -->
+  <div class="modal-overlay" id="manualOrderOverlay" style="display:none;">
+    <div class="settings-modal">
+      <div class="modal-header">
+        <h3>Add Manual Order</h3>
+        <button class="btn-close-modal" id="btnCloseManual">&#10005;</button>
+      </div>
+      <div class="modal-body">
+        <label class="settings-label">Customer Name *</label>
+        <input type="text" id="manualName" class="settings-input" placeholder="e.g. Ravi Kumar">
+        <label class="settings-label">Phone Number *</label>
+        <input type="tel" id="manualPhone" class="settings-input" placeholder="e.g. 9876543210">
+        <label class="settings-label">Delivery Address *</label>
+        <input type="text" id="manualAddress" class="settings-input" placeholder="e.g. Near Bus Stand, Bikramganj">
+        <label class="settings-label">Items Description</label>
+        <textarea id="manualItems" class="settings-input settings-textarea" placeholder="e.g. Umesh Pizza Med x1, Classic Burger x2"></textarea>
+        <label class="settings-label">Total Amount (Rs.) *</label>
+        <input type="number" id="manualTotal" class="settings-input" placeholder="e.g. 460">
+        <label class="settings-label">Notes (optional)</label>
+        <input type="text" id="manualNotes" class="settings-input" placeholder="e.g. Extra oregano">
+        <button class="btn-save-pin" id="btnSaveManual">Add This Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK v9 Compat -->
+  <script charset="UTF-8" src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script charset="UTF-8" src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script charset="UTF-8" src="firebase-config.js"></script>
+  <script charset="UTF-8" src="admin.js"></script>
+</body>
+</html>

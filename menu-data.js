@@ -1048,6 +1048,7 @@ const APP_CONFIG = {
   minOrderAmount: 99,
   deliveryTimeEstimate: "20-25 mins",
   deliveryFee: 0, // Free or standard note
+  whatsappNumber: "919128256430",
   whatsappCatalogUrl: "https://wa.me/p/26847706081597311/128256430854321",
   currencySymbol: "₹"
 };
