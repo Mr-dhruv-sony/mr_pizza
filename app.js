@@ -473,15 +473,14 @@
       '🛵 *Delivery: Bikramganj (20-25 min)*',
       '💳 *Payment: UPI / QR Code / COD*',
       '----------------------------------------',
-      '🙏 *Please confirm my order & share UPI QR for payment.*'
+      '🙏 *Please confirm & share UPI QR for payment.*'
     ].filter(Boolean).join('\n');
 
+    // api.whatsapp.com/send is the ONLY URL that opens a specific chat directly
+    // web.whatsapp.com gets intercepted by WhatsApp Desktop → shows contact picker
+    // wa.me without phone → shows contact picker
     const adminNumber = '918986187044';
-    const encoded = encodeURIComponent(lines);
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    const waAppUrl = 'https://api.whatsapp.com/send?phone=' + adminNumber + '&text=' + encoded;
-    const waWebUrl = 'https://web.whatsapp.com/send?phone=' + adminNumber + '&text=' + encoded;
+    const waUrl = 'https://api.whatsapp.com/send?phone=' + adminNumber + '&text=' + encodeURIComponent(lines);
 
     // 3. Clear cart and close cart drawer
     cart = [];
@@ -489,21 +488,18 @@
     updateCartBar();
     cartSheetOverlay.classList.remove('open');
 
-    // 4. Update Fallback Modal buttons
+    // 4. Show fallback modal with direct link (in case popup is blocked)
     const orderSuccessOverlay = document.getElementById('orderSuccessOverlay');
     const successOrderId = document.getElementById('successOrderId');
     const btnDirectWhatsApp = document.getElementById('btnDirectWhatsApp');
     const btnDirectWhatsAppApp = document.getElementById('btnDirectWhatsAppApp');
     const btnCloseSuccessModal = document.getElementById('btnCloseSuccessModal');
 
-    if (orderSuccessOverlay && successOrderId && btnDirectWhatsApp) {
+    if (orderSuccessOverlay && successOrderId) {
       successOrderId.textContent = '#' + orderId;
-      btnDirectWhatsApp.href = waWebUrl;
-      if (btnDirectWhatsAppApp) {
-        btnDirectWhatsAppApp.href = waAppUrl;
-      }
+      if (btnDirectWhatsApp) btnDirectWhatsApp.href = waUrl;
+      if (btnDirectWhatsAppApp) btnDirectWhatsAppApp.href = waUrl;
       orderSuccessOverlay.style.display = 'flex';
-
       if (btnCloseSuccessModal) {
         btnCloseSuccessModal.onclick = () => { orderSuccessOverlay.style.display = 'none'; };
       }
@@ -512,17 +508,10 @@
       };
     }
 
-    // 5. Trigger WhatsApp Redirection directly to +918986187044
-    if (isMobile) {
-      window.location.href = waAppUrl;
-    } else {
-      const popup = window.open(waWebUrl, '_blank');
-      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
-        window.location.href = waWebUrl;
-      }
-    }
+    // 5. Open WhatsApp directly — use window.open so the page doesn't navigate away
+    window.open(waUrl, '_blank');
 
-    showToast(`Order #${orderId} placed! Opening WhatsApp... \u{1F389}`);
+    showToast('Order #' + orderId + ' placed! Opening WhatsApp... 🎉');
   }
 
   // ========== Toast ==========
