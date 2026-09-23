@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Mr Pizzeria | Shivhari Food Delivery Bikramganj 🍕</title>
+  <meta name="description" content="Order fresh cheesy pizzas, burgers, shakes, and desserts in Bikramganj. Speedy 25-min delivery by Shivhari Food Delivery.">
+  <meta name="theme-color" content="#ffffff">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Wrapper (Mobile Viewport Optimized) -->
+  <div class="app-container">
+
+    <!-- 1. Sticky Header & Location Bar -->
+    <header class="app-header">
+      <div class="header-top-row">
+        <div class="location-picker">
+          <span class="location-icon-badge">📍</span>
+          <div class="location-details">
+            <span class="location-title">Bikramganj, Bihar <small>▾</small></span>
+            <span class="location-subtitle">Shivhari Food Delivery • 20-25 Mins</span>
+          </div>
+        </div>
+        
+        <div class="header-actions">
+          <a href="tel:+919128256430" class="call-btn-pill" title="Direct Phone Call">
+            <span>📞 Call</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Search Input -->
+      <div class="search-wrapper">
+        <div class="search-bar-inner">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="appSearchInput" class="app-search-input" placeholder="Search 'Umesh Pizza', 'Burger', 'Shake'..." autocomplete="off">
+          <button id="btnClearSearch" class="btn-clear-search" aria-label="Clear Search">✕</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Restaurant Hero Header Card (Zomato Style) -->
+    <section class="restaurant-card-section">
+      <div class="restaurant-hero-card">
+        <div class="hero-card-glow"></div>
+        <div class="restaurant-main-info">
+          <div class="restaurant-title-wrap">
+            <h1>Mr Pizzeria 🍕</h1>
+            <p class="restaurant-tagline">By Shivhari Food Delivery</p>
+            <p class="restaurant-cuisine">Pizzas • Burgers • Sandwiches • Shakes • Desserts</p>
+          </div>
+          
+          <div class="rating-badge-pill">
+            <span class="rating-score">4.8 ★</span>
+            <span class="rating-reviews">500+ ratings</span>
+          </div>
+        </div>
+
+        <div class="restaurant-meta-pills">
+          <span class="meta-pill delivery-time">⚡ 20-25 mins</span>
+          <span class="meta-pill min-order">🛵 Min Order ₹99</span>
+          <span class="meta-pill pure-veg">🟢 Pure Veg & Jain</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Promotional Offers / Delivery Highlights -->
+    <section class="offers-slider-container" id="offersSliderContainer">
+      <!-- Injected by app.js -->
+    </section>
+
+    <!-- 4. Circular Category Row (Swiggy Style "What's on your mind?") -->
+    <section class="categories-circular-section">
+      <div class="section-label">What's on your mind?</div>
+      <div class="circular-cats-scroll" id="circularCategoryScroll">
+        <!-- Injected by app.js -->
+      </div>
+    </section>
+
+    <!-- 5. Sticky Filter Chips Bar -->
+    <div class="filter-pills-row" id="filterPillsRow">
+      <button class="filter-chip-btn active" data-filter="all">All</button>
+      <button class="filter-chip-btn pure-veg-btn" data-filter="pure-veg">🟢 Pure Veg</button>
+      <button class="filter-chip-btn" data-filter="bestseller">⭐ Bestsellers</button>
+      <button class="filter-chip-btn" data-filter="jain">🌿 Pure Jain</button>
+      <button class="filter-chip-btn" data-filter="cheesy">🧀 Cheesy</button>
+      <button class="filter-chip-btn" data-filter="spicy">🔥 Spicy</button>
+      <button class="filter-chip-btn" data-filter="budget">Under ₹100</button>
+    </div>
+
+    <!-- 6. Menu Feed Container (Swiggy Item Cards) -->
+    <main class="menu-feed-container" id="menuFeedContainer">
+      <!-- Injected by app.js -->
+    </main>
+
+    <!-- 7. Shivhari Food Delivery Network (7 Unified Outlets) -->
+    <section class="shivhari-services-section" id="shivhariHubSection">
+      <div class="hub-section-header">
+        <span class="hub-title-sm">Unified Food Delivery</span>
+        <h3 class="hub-heading-h3">शिवहरि फूड डिलीवरी (विक्रमगंज)</h3>
+        <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">Order from any of our 7 counters in 1 delivery:</p>
+      </div>
+
+      <div class="services-carousel-scroll" id="servicesGrid">
+        <!-- Injected by app.js -->
+      </div>
+    </section>
+
+    <!-- Footer Note -->
+    <footer style="padding: 24px 16px; text-align: center; color: var(--text-light); font-size: 0.75rem; background: #fff;">
+      <p><strong>Mr Pizzeria</strong> • Shivhari Food Delivery, Bikramganj</p>
+      <p style="margin-top: 4px;">🛵 Speedy 25-min door delivery • 100% Fresh & Hygienic</p>
+    </footer>
+
+    <!-- 8. Floating Category Jump Menu Button (Bottom Center) -->
+    <div class="floating-menu-btn-wrap" id="floatingMenuBtnWrap">
+      <button class="btn-floating-menu" id="btnOpenMenuJump">
+        <span>📖</span>
+        <span>MENU</span>
+      </button>
+    </div>
+
+    <!-- 9. Floating Bottom Cart Pill (Swiggy Style) -->
+    <div class="floating-bottom-cart-bar" id="floatingBottomCartBar">
+      <div class="cart-bar-pill" id="btnOpenCartSheet">
+        <div class="cart-bar-left">
+          <span class="cart-bar-items" id="cartBarItemsCount">0 ITEMS</span>
+          <span class="cart-bar-total" id="cartBarTotalPrice">₹0</span>
+        </div>
+        <div class="cart-bar-right">
+          <span>View Cart</span>
+          <span>→</span>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- End .app-container -->
+
+  <!-- ================= 10. Pizza Customizer Bottom Sheet ================= -->
+  <div class="customizer-modal-overlay" id="customizerModalOverlay">
+    <div class="customizer-bottom-sheet" role="dialog" aria-modal="true">
+      <div class="customizer-top-bar">
+        <div class="customizer-title-wrap">
+          <h3 id="customizerItemName">Select Pizza Size</h3>
+          <p id="customizerItemDesc">Choose your preferred crust & size</p>
+        </div>
+        <button class="btn-close-sheet" id="btnCloseCustomizer">✕</button>
+      </div>
+
+      <div class="size-options-group" id="customizerSizesContainer">
+        <!-- Injected dynamically -->
+      </div>
+
+      <button class="btn-confirm-customization" id="btnConfirmCustomization">
+        <span>Add to Order</span>
+        <span id="customizerConfirmPrice">₹280</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= 11. Cart Bottom Sheet & Checkout (Swiggy Style) ================= -->
+  <div class="cart-sheet-overlay" id="cartSheetOverlay">
+    <div class="cart-bottom-sheet" role="dialog" aria-modal="true">
+      <div class="cart-sheet-header">
+        <h3>🛒 Order Summary (<span id="cartSheetCount">0</span>)</h3>
+        <button class="btn-close-sheet" id="btnCloseCartSheet">✕</button>
+      </div>
+
+      <div class="cart-sheet-body">
+        
+        <!-- Cart Items Box -->
+        <div class="cart-card-box">
+          <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">
+            Selected Items
+          </div>
+          <div id="cartSheetItemsList">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Customer & Delivery Details Form -->
+        <div class="cart-card-box">
+          <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 8px; color: var(--text-main);">
+            📍 Delivery Details (Bikramganj)
+          </div>
+          
+          <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">Your Name *</label>
+          <input type="text" id="orderCustName" class="form-input-box" placeholder="e.g. Amit Kumar" required>
+
+          <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">WhatsApp Mobile No. *</label>
+          <input type="tel" id="orderCustPhone" class="form-input-box" placeholder="e.g. 9876543210" required>
+
+          <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">Full Address & Landmark *</label>
+          <input type="text" id="orderCustAddress" class="form-input-box" placeholder="House/Shop no, Landmark, Bikramganj" required>
+
+          <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">Cooking / Delivery Note (Optional)</label>
+          <input type="text" id="orderCustNotes" class="form-input-box" placeholder="e.g. Extra oregano packets, less spicy">
+        </div>
+
+        <!-- Bill Details Card (Swiggy Style) -->
+        <div class="cart-card-box">
+          <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 10px; color: var(--text-main);">
+            Bill Details
+          </div>
+
+          <div class="bill-breakdown-row">
+            <span>Item Total</span>
+            <span id="billItemTotal" style="font-weight: 700; color: var(--text-main);">₹0</span>
+          </div>
+          <div class="bill-breakdown-row">
+            <span>Delivery Partner Fee (25m)</span>
+            <span class="free-tag">₹0 Free in Town</span>
+          </div>
+          <div class="bill-breakdown-row">
+            <span>Restaurant Packaging</span>
+            <span class="free-tag">FREE</span>
+          </div>
+
+          <div class="bill-breakdown-row total-row">
+            <span>To Pay</span>
+            <span id="billGrandTotal">₹0</span>
+          </div>
+        </div>
+
+        <!-- Minimum Order Warning Alert -->
+        <div id="cartMinOrderAlert" class="min-order-pill-alert" style="display: none;">
+          ⚠️ Minimum order is <strong>₹99</strong>. Add items worth <span id="cartShortageValue">₹0</span> more.
+        </div>
+
+        <!-- WhatsApp Checkout CTA -->
+        <button id="btnSendWhatsAppOrder" class="btn-whatsapp-order-cta">
+          <span>💬 Order via WhatsApp (Speedy 25m)</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 12. Category Jump Menu Bottom Sheet ================= -->
+  <div class="customizer-modal-overlay" id="menuJumpOverlay">
+    <div class="category-jump-sheet" id="categoryJumpSheet">
+      <div class="jump-sheet-title">
+        <span>Quick Menu Jump</span>
+        <button class="btn-close-sheet" id="btnCloseMenuJump">✕</button>
+      </div>
+      <div class="jump-list-options" id="jumpListOptions">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Toast Notification ================= -->
+  <div class="app-toast" id="appToast">
+    <span id="toastIcon">🍕</span>
+    <span id="toastText">Item added to cart!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="menu-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

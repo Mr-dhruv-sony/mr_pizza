@@ -1,0 +1,189 @@
+🍕 PIZZAS (Small | Medium | Large)  
+
+🍕 Umesh Special Pizza: ₹180 | ₹280 | ₹430
+(Mozzarella, corn, mushroom, paneer, capsicum, olive, red paprika)  
+
+🧀 Triple Layer Cheese Pizza: ₹220 | ₹300 | ₹400
+(Onion, capsicum, jalapeno, 3 cheese flavors)  
+
+🥦 Exotica Pizza: ₹200 | ₹280 | ₹380
+(Broccoli, cherry tomato, mushroom, pizza sprinkle, mozzarella, olive, red paprika)  
+
+🔥 Paneer Smoky Pizza: ₹180 | ₹280 | ₹380
+(Paneer, BBQ sauce, onion, capsicum, red paprika, black olives)  
+
+🌿 Jain Pizza: ₹150 | ₹250 | ₹350
+(Corn, mushroom, black olive, red paprika)  
+
+🧀 Margherita Pizza: ₹120 | ₹200 | ₹300
+(Mozzarella cheese, spices sprinkle)  
+
+🥗 Mix Vegetable Pizza: ₹150 | ₹250 | ₹350
+(Onion, red & yellow capsicum, red paprika)  
+
+🧀 Paneer Tikka Pizza: ₹160 | ₹260 | ₹380
+(Paneer, capsicum, olive, red paprika)  
+
+🍢 Paneer Tandoori Pizza: ₹160 | ₹260 | ₹380
+(Paneer, tandoori, capsicum, olive, red paprika)  
+
+🌽 Corn Cheese Pizza: ₹150 | ₹240 | ₹350
+(Sweet corn, cheese, capsicum)  
+
+🧀 Double Cheese Pizza: ₹180 | ₹260 | ₹360
+(Mozzarella, processed cheese, choice of veggie)  
+
+🍄 Spl Mushroom Pizza: ₹180 | ₹260 | ₹360
+(Mozzarella, liquid cheese, mushroom, olive)  
+
+💥 Cheese Burst Pizza: ₹200 | ₹300 | ₹450
+(Mozzarella, processed, filter cheese, choice of veggie)  
+
+🧀 Extra Cheese: ₹50  
+
+
+🍔 BURGERS  
+
+
+🍔 Classic Veg Burger: ₹90  
+
+🧀 Classic Veg Cheese Burger: ₹110  
+
+🥔 Aloo Tikki Burger: ₹80  
+
+🧀 Aloo Tikki Cheese Burger: ₹100  
+
+🧀 Royal Paneer Burger: ₹90  
+
+👑 Royal Paneer Cheese Burger: ₹100 
+ 
+⭐ Pizzeria Spl. Burger: ₹150  
+
+
+🥐 PUFFS & BITES  
+
+🥐 Paneer Patties: ₹30  
+
+🧀 Paneer Patties (with Cheese): ₹40  
+
+🍄 Mushroom Patties: ₹30  
+
+🍢 Paneer Tikka Patties: ₹35  
+
+🍞 Chilli Cheese Toast (2pc): ₹70  
+
+🧆 Corn Cheese Ball (6pc): ₹100  
+
+
+🥪 SANDWICHES  
+
+
+🥔 Aloo Cheese Slice Sandwich: ₹50  
+
+🍓 Bread Butter Jam: ₹50  
+
+🥪 Veg Club Sandwich (3 Layer): ₹160  
+
+🥗 Veg Coleslaw Sandwich: ₹100  
+
+🌿 Jain Sandwich: ₹120  
+
+🌶️ Ghughra Sandwich: ₹160  
+
+🥒 Achari Sandwich: ₹120  
+
+🥪 Grilled Veg Jangali Sandwich: ₹100  
+
+🔥 Grilled Paneer Tandoori: ₹120  
+
+🥘 Grilled Paneer Makhani: ₹120  
+
+🥕 Veg Garden Spl. Sandwich: ₹150 
+ 
+
+🍟 FRIES 
+
+
+🍟 French Fries: ₹100  
+
+🧂 Salted French Fries: ₹110  
+
+🌶️ Peri Peri French Fries: ₹120  
+
+🧀 Over Loaded Fries: ₹150  
+
+🥤 SHAKES  
+
+
+☕ Cold Coffee: ₹70  
+
+🥛 Milk Shake: ₹70  
+
+🍫 Chocolate Shake: ₹70  
+
+🍓 Strawberry Shake: ₹75  
+
+🧈 Butterscotch Shake: ₹75  
+
+🍍 Pineapple Shake: ₹75  
+
+🍪 Oreo Shake: ₹80  
+
+🍫 Kitkat Shake: ₹90  
+
+🥛 Badam Thandai Shake: ₹90  
+
+🥧 Brownie Shake: ₹130  
+
+🍫 Ferrero Rocher Shake: ₹150  
+
+
+🍹 MOJITOS  
+
+
+🍏 Green Granny Mojito: ₹70  
+
+🍉 Watermelon Mojito: ₹70  
+
+🍊 Orange Malt Mojito: ₹70  
+
+🔵 Blue Curacao Mojito: ₹70  
+
+🍇 Kala Khatta: ₹70  
+
+🍋 Spicy Lemon Mojito: ₹70  
+
+🌿 Mint Mojito: ₹70  
+
+🍰 DESSERTS  
+
+
+🍩 Chocolate Donuts: ₹40  
+
+🌋 Lava Cakes: ₹40  
+
+🍰 Black Forest Pastry: ₹50  
+
+🍍 Pineapple Pastry: ₹50  
+
+🍫 Chocolate Pastry: ₹50  
+
+🟡 Rasmalai Pastry: ₹60  
+
+🍰 Red Velvet Pastry: ₹70  
+
+🥧 Hot Chocolate Brownie: ₹80  
+
+🍨 Brownie with Ice Cream: ₹120  
+
+🫐 Blueberry Cheesecake (100g): ₹70  
+
+🍪 Oreo Cheesecake: ₹70  
+
+🌰 Hazelnut Cheesecake: ₹70  
+
+🍫 Triple Layer Mousse Cake: ₹70  
+
+🍯 Bee Honey Cheesecake: ₹70  
+
+MINIMUM ORDER 99+DELIVERY CHARGE
