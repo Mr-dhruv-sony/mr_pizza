@@ -118,25 +118,56 @@
     `).join('');
   }
 
+  // ========== Size & Price Helpers ==========
+  function getItemSizes(item) {
+    if (item.sizes && Array.isArray(item.sizes) && item.sizes.length > 0) {
+      return item.sizes;
+    }
+    if (item.prices && typeof item.prices === 'object') {
+      return Object.keys(item.prices).map(k => ({
+        key: k,
+        label: k.charAt(0).toUpperCase() + k.slice(1),
+        price: item.prices[k]
+      }));
+    }
+    return [];
+  }
+
+  function getItemDisplayPrice(item) {
+    const sizes = getItemSizes(item);
+    if (sizes.length > 0) {
+      const minP = Math.min(...sizes.map(s => s.price));
+      const maxP = Math.max(...sizes.map(s => s.price));
+      if (minP === maxP) return `₹${minP}`;
+      return `₹${minP} - ₹${maxP}`;
+    }
+    return `₹${item.price}`;
+  }
+
   // ========== Filter Items ==========
   function getFilteredItems() {
     return MENU_ITEMS.filter(item => {
       if (activeCatId !== 'all' && item.categoryId !== activeCatId) return false;
 
-      if (activeFilter === 'bestseller') {
-        if (!item.tags || !item.tags.some(t => /bestseller|must try|chef special|popular/i.test(t))) return false;
+      if (activeFilter === 'pure-veg') {
+        if (item.isVeg === false) return false;
+      } else if (activeFilter === 'non-veg') {
+        if (item.isVeg !== false) return false;
+      } else if (activeFilter === 'bestseller') {
+        if (!item.tags || !item.tags.some(t => /bestseller|must try|chef special|popular|special/i.test(t))) return false;
       } else if (activeFilter === 'jain') {
         if (!item.isJain) return false;
       } else if (activeFilter === 'cheesy') {
         if (!item.tags || !item.tags.some(t => /cheese|cheesy/i.test(t))) {
-          if (!/cheese/i.test(item.name) && !/cheese/i.test(item.desc)) return false;
+          if (!/cheese/i.test(item.name) && !/cheese/i.test(item.desc || '')) return false;
         }
       } else if (activeFilter === 'spicy') {
-        if (!item.tags || !item.tags.some(t => /spicy|spice|smoky|peri|chilli|fiery/i.test(t))) {
-          if (!/tandoori|spicy|chilli/i.test(item.name)) return false;
+        if (!item.tags || !item.tags.some(t => /spicy|spice|smoky|peri|chilli|fiery|angara/i.test(t))) {
+          if (!/tandoori|spicy|chilli|masala|angara/i.test(item.name)) return false;
         }
       } else if (activeFilter === 'budget') {
-        const lowestPrice = item.hasSizes ? item.prices.small : item.price;
+        const sizes = getItemSizes(item);
+        const lowestPrice = sizes.length > 0 ? Math.min(...sizes.map(s => s.price)) : item.price;
         if (lowestPrice > 100) return false;
       }
 
@@ -194,10 +225,16 @@
   function renderFoodItemRow(item) {
     const isBestseller = item.tags && item.tags.some(t => /bestseller/i.test(t));
     const isJain = item.isJain;
+    const isVeg = item.isVeg !== false;
+    const isEgg = item.isEgg;
+    const sizes = getItemSizes(item);
+    const hasMultipleSizes = sizes.length > 1;
     const cartEntry = getCartEntry(item);
-    const displayPrice = item.hasSizes ? `₹${item.prices.small} - ₹${item.prices.large}` : `₹${item.price}`;
+    const displayPrice = getItemDisplayPrice(item);
 
-    const addButtonHtml = cartEntry
+    const typeSymbolClass = !isVeg ? 'non-veg' : isEgg ? 'egg' : isJain ? 'jain' : '';
+
+    const addButtonHtml = (cartEntry && !hasMultipleSizes)
       ? `<div class="swiggy-qty-stepper" data-stepper-id="${cartEntry.cartItemId}">
            <button class="stepper-btn" data-action="dec" data-cart-id="${cartEntry.cartItemId}">−</button>
            <span class="stepper-val">${cartEntry.qty}</span>
@@ -207,13 +244,13 @@
            <span>+</span> ADD
          </button>`;
 
-    const customisableNote = item.hasSizes ? `<span class="customisable-text">customisable</span>` : '';
+    const customisableNote = hasMultipleSizes ? `<span class="customisable-text">customisable</span>` : '';
 
     return `
       <div class="food-item-row" id="row-${item.id}">
         <div class="item-left-col">
           <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
-            <div class="veg-type-symbol ${isJain ? 'jain' : ''}">
+            <div class="veg-type-symbol ${typeSymbolClass}">
               <div class="veg-type-circle"></div>
             </div>
             ${isBestseller ? `<span class="bestseller-tag-pill">⭐ Bestseller</span>` : ''}
@@ -222,7 +259,7 @@
           <div class="item-name-heading">${item.name}</div>
           <div class="item-price-tag">
             ${displayPrice}
-            ${item.hasSizes ? `<span class="item-size-badge">3 sizes</span>` : ''}
+            ${hasMultipleSizes ? `<span class="item-size-badge">${sizes.length} options</span>` : ''}
           </div>
 
           ${item.rating ? `
@@ -232,11 +269,11 @@
             <span class="item-votes-count">(${item.votes} ratings)</span>
           </div>` : ''}
 
-          <p class="item-description-text">${item.desc}</p>
+          <p class="item-description-text">${item.desc || ''}</p>
         </div>
 
         <div class="item-right-col">
-          <div class="item-thumbnail-box">${item.icon}</div>
+          <div class="item-thumbnail-box">${item.icon || '🍽️'}</div>
           <div class="swiggy-add-btn-wrap">
             ${addButtonHtml}
             ${customisableNote}
@@ -248,8 +285,9 @@
 
   // ========== Cart Helpers ==========
   function getCartEntry(item) {
-    if (item.hasSizes) return null; // Multi-size items managed separately
-    return cart.find(c => c.id === item.id && !c.size);
+    const sizes = getItemSizes(item);
+    if (sizes.length > 1) return null;
+    return cart.find(c => c.id === item.id && !c.sizeKey);
   }
 
   function getCartSubtotal() {
@@ -260,24 +298,44 @@
     return cart.reduce((s, c) => s + c.qty, 0);
   }
 
-  function addItemToCart(itemId, size) {
+  function addItemToCart(itemId, sizeKey) {
     const item = MENU_ITEMS.find(i => i.id === itemId);
     if (!item) return;
 
-    const price = item.hasSizes ? item.prices[size] : item.price;
-    const cartItemId = size ? `${item.id}__${size}` : item.id;
+    const sizes = getItemSizes(item);
+    let price = item.price;
+    let sizeLabel = null;
+
+    if (sizes.length > 0 && sizeKey) {
+      const sObj = sizes.find(s => s.key === sizeKey);
+      if (sObj) {
+        price = sObj.price;
+        sizeLabel = sObj.label;
+      }
+    }
+
+    const cartItemId = sizeKey ? `${item.id}__${sizeKey}` : item.id;
     const existing = cart.find(c => c.cartItemId === cartItemId);
 
     if (existing) {
       existing.qty += 1;
     } else {
-      cart.push({ cartItemId, id: item.id, name: item.name, icon: item.icon, size: size || null, price, qty: 1 });
+      cart.push({
+        cartItemId,
+        id: item.id,
+        name: item.name,
+        icon: item.icon || '🍽️',
+        size: sizeLabel || null,
+        sizeKey: sizeKey || null,
+        price,
+        qty: 1
+      });
     }
 
     saveCart();
     updateCartBar();
-    renderMenu(); // Re-render to update stepper vs button
-    showToast(`${item.icon} ${item.name} added to cart!`);
+    renderMenu();
+    showToast(`${item.icon || '🍽️'} ${item.name} added to cart!`);
   }
 
   function changeQty(cartItemId, delta) {
@@ -350,36 +408,33 @@
     }
   }
 
-  // ========== Open Customizer (Pizza Size Picker) ==========
+  // ========== Open Customizer (Size & Portion Picker) ==========
   function openCustomizer(itemId) {
     const item = MENU_ITEMS.find(i => i.id === itemId);
     if (!item) return;
     customizerItem = item;
 
-    // Default to first existing cart entry size or medium
-    const existingEntry = cart.find(c => c.id === item.id && c.size);
-    customizerSelectedSize = (existingEntry && existingEntry.size) || item.defaultSize || 'medium';
+    const sizes = getItemSizes(item);
+    if (sizes.length === 0) return;
+
+    const existingEntry = cart.find(c => c.id === item.id && c.sizeKey);
+    customizerSelectedSize = (existingEntry && existingEntry.sizeKey) || item.defaultSize || sizes[0].key;
 
     customizerItemName.textContent = item.name;
-    customizerItemDesc.textContent = item.desc;
-
-    const sizes = [
-      { key: 'small', label: 'Small' },
-      { key: 'medium', label: 'Medium' },
-      { key: 'large', label: 'Large' }
-    ];
+    customizerItemDesc.textContent = item.desc || '';
 
     customizerSizesContainer.innerHTML = sizes.map(s => `
       <label class="size-option-label ${customizerSelectedSize === s.key ? 'selected' : ''}" data-size-key="${s.key}">
         <div class="size-radio-left">
           <div class="custom-radio-dot"></div>
-          <span class="size-text-title">${s.label} (serves 1-${s.key === 'small' ? '2' : s.key === 'medium' ? '3' : '4'})</span>
+          <span class="size-text-title">${s.label}</span>
         </div>
-        <span class="size-price-right">₹${item.prices[s.key]}</span>
+        <span class="size-price-right">₹${s.price}</span>
       </label>
     `).join('');
 
-    customizerConfirmPrice.textContent = `₹${item.prices[customizerSelectedSize]}`;
+    const chosenObj = sizes.find(s => s.key === customizerSelectedSize) || sizes[0];
+    customizerConfirmPrice.textContent = `₹${chosenObj ? chosenObj.price : ''}`;
 
     // Bind size radio events
     customizerSizesContainer.querySelectorAll('.size-option-label').forEach(lbl => {
@@ -387,7 +442,8 @@
         customizerSelectedSize = lbl.dataset.sizeKey;
         customizerSizesContainer.querySelectorAll('.size-option-label').forEach(l => l.classList.remove('selected'));
         lbl.classList.add('selected');
-        customizerConfirmPrice.textContent = `₹${customizerItem.prices[customizerSelectedSize]}`;
+        const selectedObj = sizes.find(s => s.key === customizerSelectedSize);
+        customizerConfirmPrice.textContent = `₹${selectedObj ? selectedObj.price : ''}`;
       });
     });
 

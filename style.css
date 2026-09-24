@@ -548,6 +548,11 @@ body {
   border-color: var(--veg-green);
   box-shadow: var(--shadow-green);
 }
+.filter-chip-btn.non-veg-btn.active {
+  background: #e53935;
+  border-color: #e53935;
+  box-shadow: 0 4px 14px rgba(229, 57, 53, 0.35);
+}
 
 /* ==========================================================================
    6. Menu Feed — Item Cards
@@ -619,6 +624,8 @@ body {
   flex-shrink: 0;
 }
 .veg-type-symbol.jain { border-color: var(--jain-green); }
+.veg-type-symbol.non-veg { border-color: #e53935; }
+.veg-type-symbol.egg { border-color: #f59e0b; }
 
 .veg-type-circle {
   width: 7px;
@@ -627,6 +634,8 @@ body {
   border-radius: 50%;
 }
 .veg-type-symbol.jain .veg-type-circle { background: var(--jain-green); }
+.veg-type-symbol.non-veg .veg-type-circle { background: #e53935; border-radius: 2px; }
+.veg-type-symbol.egg .veg-type-circle { background: #f59e0b; }
 
 .bestseller-tag-pill {
   font-size: 0.66rem;

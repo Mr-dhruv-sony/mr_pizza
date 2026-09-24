@@ -1,22 +1,36 @@
-// Mr Pizzeria - Comprehensive Menu Data & Ratings for Swiggy/Zomato Mobile Experience
+// Mr Pizzeria & Shivhari Food Delivery - Comprehensive Unified Menu Data
 
 const MENU_CATEGORIES = [
   { id: "all", name: "All", icon: "✨" },
-  { id: "pizzas", name: "Pizzas", icon: "🍕", img: "🍕" },
-  { id: "burgers", name: "Burgers", icon: "🍔", img: "🍔" },
-  { id: "sandwiches", name: "Sandwiches", icon: "🥪", img: "🥪" },
-  { id: "puffs", name: "Puffs & Bites", icon: "🥐", img: "🥐" },
-  { id: "fries", name: "Fries", icon: "🍟", img: "🍟" },
-  { id: "shakes", name: "Shakes", icon: "🥤", img: "🥤" },
-  { id: "mojitos", name: "Mojitos", icon: "🍹", img: "🍹" },
-  { id: "desserts", name: "Desserts", icon: "🍰", img: "🍰" }
+  { id: "pizzas", name: "Pizzas", icon: "🍕" },
+  { id: "burgers", name: "Burgers", icon: "🍔" },
+  { id: "sandwiches", name: "Sandwiches", icon: "🥪" },
+  { id: "puffs", name: "Puffs & Bites", icon: "🥐" },
+  { id: "fries", name: "Fries & Buckets", icon: "🍟" },
+  { id: "nonveg", name: "Indian Non-Veg", icon: "🍗" },
+  { id: "indianveg", name: "Indian Veg", icon: "🥦" },
+  { id: "biryani", name: "Biryani Special", icon: "🍚" },
+  { id: "starters", name: "Starters & Snacks", icon: "🍤" },
+  { id: "kebab", name: "Kebab & Tandoori", icon: "🍢" },
+  { id: "chinese", name: "Chinese & Noodles", icon: "🥢" },
+  { id: "southindian", name: "South Indian & Chaat", icon: "🥞" },
+  { id: "kopta_soup", name: "Kopta & Soups", icon: "🍲" },
+  { id: "roti", name: "Roti & Naan", icon: "🫓" },
+  { id: "dal_rice", name: "Dal & Rice", icon: "🥣" },
+  { id: "salad_raita", name: "Salad & Raita", icon: "🥗" },
+  { id: "shakes", name: "Shakes", icon: "🥤" },
+  { id: "mojitos", name: "Mojitos", icon: "🍹" },
+  { id: "beverages", name: "Beverages & Tea", icon: "☕" },
+  { id: "desserts", name: "Desserts & Pastries", icon: "🍰" },
+  { id: "sweets", name: "Shivhari Sweets", icon: "🍨" },
+  { id: "birthday", name: "Party & Birthday", icon: "🎈" }
 ];
 
 const PROMO_BANNERS = [
   {
     id: 1,
     title: "⚡ Bikramganj's Fastest Delivery",
-    subtitle: "Piping hot pizzas delivered in 25 mins!",
+    subtitle: "Piping hot food delivered in 20-25 mins!",
     tag: "SPEEDY 25M",
     bgGradient: "linear-gradient(135deg, #ff416c, #ff4b2b)"
   },
@@ -30,7 +44,7 @@ const PROMO_BANNERS = [
   {
     id: 3,
     title: "🎉 Shivhari Food Hub Network",
-    subtitle: "Order Cakes, Biryani, Dosa & Sweets too",
+    subtitle: "Order Pizzas, Meals, Dosa, Sweets & Party items",
     tag: "7 SERVICES",
     bgGradient: "linear-gradient(135deg, #11998e, #38ef7d)"
   }
@@ -38,16 +52,18 @@ const PROMO_BANNERS = [
 
 const SHIVHARI_SERVICES = [
   { code: "1", title: "Cakes & Bakery", icon: "🎂", subtitle: "केक और बेकरी", desc: "Fresh customized celebration cakes" },
-  { code: "2", title: "Mr Pizzeria", icon: "🍕", subtitle: "मिस्टर पिज्जा", desc: "Cheesy pizzas, burgers & shakes (Active Menu)", active: true },
-  { code: "3", title: "Restaurant Meals", icon: "🍽️", subtitle: "रेस्टोरेंट भोजन", desc: "North Indian, Chinese & Combos" },
-  { code: "4", title: "Umesh Dosa & Chat", icon: "🥞", subtitle: "उमेश डोसा & चाट", desc: "Crispy dosas, chaat & snacks" },
-  { code: "5", title: "Sweets & Mithai", icon: "🍬", subtitle: "स्वीट्स & मिठाई", desc: "Traditional fresh Indian sweets" },
-  { code: "6", title: "Birthday Items", icon: "🎉", subtitle: "बर्थडे पार्टी सामान", desc: "Balloons, party poppers & decor" },
-  { code: "8", title: "Biryani House", icon: "🍲", subtitle: "बिरयानी हाउस", desc: "Aromatic dum biryani specials" }
+  { code: "2", title: "Mr Pizzeria", icon: "🍕", subtitle: "मिस्टर पिज्जा", desc: "Cheesy pizzas, burgers & shakes", active: true },
+  { code: "3", title: "Restaurant Meals", icon: "🍽️", subtitle: "रेस्टोरेंट भोजन", desc: "North Indian, Chinese & Combos", active: true },
+  { code: "4", title: "Umesh Dosa & Chat", icon: "🥞", subtitle: "उमेश डोसा & चाट", desc: "Crispy dosas, chaat & snacks", active: true },
+  { code: "5", title: "Sweets & Mithai", icon: "🍬", subtitle: "स्वीट्स & मिठाई", desc: "Traditional fresh Indian sweets", active: true },
+  { code: "6", title: "Birthday Items", icon: "🎉", subtitle: "बर्थडे पार्टी सामान", desc: "Balloons, party poppers & decor", active: true },
+  { code: "8", title: "Biryani House", icon: "🍲", subtitle: "बिरयानी हाउस", desc: "Aromatic dum biryani specials", active: true }
 ];
 
 const MENU_ITEMS = [
-  // --- PIZZAS ---
+  // ==========================================
+  // 1. PIZZAS (Small | Medium | Large)
+  // ==========================================
   {
     id: "piz-umesh-spl",
     categoryId: "pizzas",
@@ -55,11 +71,15 @@ const MENU_ITEMS = [
     icon: "🍕",
     rating: "4.9",
     votes: "142",
-    desc: "Mozzarella, sweet corn, mushrooms, fresh paneer, capsicum, black olives & red paprika with secret spices.",
+    desc: "Mozzarella, corn, mushroom, paneer, capsicum, olive, red paprika.",
     tags: ["Bestseller", "Chef Special"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 180, medium: 280, large: 430 },
+    sizes: [
+      { key: "small", label: "Small", price: 180 },
+      { key: "medium", label: "Medium", price: 280 },
+      { key: "large", label: "Large", price: 430 }
+    ],
     defaultSize: "medium"
   },
   {
@@ -69,11 +89,15 @@ const MENU_ITEMS = [
     icon: "🧀",
     rating: "4.8",
     votes: "128",
-    desc: "Loaded with crunchy onion, crisp capsicum, spicy jalapenos and 3 mouth-watering cheese flavors.",
+    desc: "Onion, capsicum, jalapeno, 3 cheese flavors.",
     tags: ["Bestseller", "Cheesy"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 220, medium: 300, large: 400 },
+    sizes: [
+      { key: "small", label: "Small", price: 220 },
+      { key: "medium", label: "Medium", price: 300 },
+      { key: "large", label: "Large", price: 400 }
+    ],
     defaultSize: "medium"
   },
   {
@@ -83,11 +107,15 @@ const MENU_ITEMS = [
     icon: "🥦",
     rating: "4.7",
     votes: "95",
-    desc: "Broccoli florets, juicy cherry tomatoes, mushrooms, signature pizza sprinkle, mozzarella & red paprika.",
+    desc: "Broccoli, cherry tomato, mushroom, pizza sprinkle, mozzarella, olive, red paprika.",
     tags: ["Gourmet"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 200, medium: 280, large: 380 },
+    sizes: [
+      { key: "small", label: "Small", price: 200 },
+      { key: "medium", label: "Medium", price: 280 },
+      { key: "large", label: "Large", price: 380 }
+    ],
     defaultSize: "medium"
   },
   {
@@ -97,11 +125,15 @@ const MENU_ITEMS = [
     icon: "🔥",
     rating: "4.8",
     votes: "116",
-    desc: "Charred BBQ paneer cubes, red onions, capsicum, red paprika and black olives on smoky sauce.",
+    desc: "Paneer, BBQ sauce, onion, capsicum, red paprika, black olives.",
     tags: ["Spicy", "Popular"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 180, medium: 280, large: 380 },
+    sizes: [
+      { key: "small", label: "Small", price: 180 },
+      { key: "medium", label: "Medium", price: 280 },
+      { key: "large", label: "Large", price: 380 }
+    ],
     defaultSize: "medium"
   },
   {
@@ -111,26 +143,34 @@ const MENU_ITEMS = [
     icon: "🌿",
     rating: "4.7",
     votes: "78",
-    desc: "Specially prepared 100% Jain pizza with sweet corn, mushroom, black olives & red paprika. No onion, no garlic.",
+    desc: "Corn, mushroom, black olive, red paprika (No onion, no garlic).",
     tags: ["Pure Jain"],
     isVeg: true,
     isJain: true,
     hasSizes: true,
-    prices: { small: 150, medium: 250, large: 350 },
+    sizes: [
+      { key: "small", label: "Small", price: 150 },
+      { key: "medium", label: "Medium", price: 250 },
+      { key: "large", label: "Large", price: 350 }
+    ],
     defaultSize: "medium"
   },
   {
     id: "piz-margherita",
     categoryId: "pizzas",
-    name: "Classic Margherita Pizza",
+    name: "Margherita Pizza",
     icon: "🧀",
     rating: "4.6",
     votes: "110",
-    desc: "Authentic single-origin Mozzarella cheese with aromatic Italian herbs and fresh tomato concasse.",
+    desc: "Mozzarella cheese, spices sprinkle.",
     tags: ["Classic"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 120, medium: 200, large: 300 },
+    sizes: [
+      { key: "small", label: "Small", price: 120 },
+      { key: "medium", label: "Medium", price: 200 },
+      { key: "large", label: "Large", price: 300 }
+    ],
     defaultSize: "small"
   },
   {
@@ -140,11 +180,15 @@ const MENU_ITEMS = [
     icon: "🥗",
     rating: "4.5",
     votes: "84",
-    desc: "Fresh diced onions, red & yellow bell peppers, crisp capsicum and vibrant red paprika.",
+    desc: "Onion, red & yellow capsicum, red paprika.",
     tags: ["Fresh Veg"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 150, medium: 250, large: 350 },
+    sizes: [
+      { key: "small", label: "Small", price: 150 },
+      { key: "medium", label: "Medium", price: 250 },
+      { key: "large", label: "Large", price: 350 }
+    ],
     defaultSize: "medium"
   },
   {
@@ -154,11 +198,15 @@ const MENU_ITEMS = [
     icon: "🧀",
     rating: "4.9",
     votes: "155",
-    desc: "Tandoori spiced paneer cubes, crunchy green capsicum, black olives and fiery red paprika.",
+    desc: "Paneer, capsicum, olive, red paprika.",
     tags: ["Bestseller"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 160, medium: 260, large: 380 },
+    sizes: [
+      { key: "small", label: "Small", price: 160 },
+      { key: "medium", label: "Medium", price: 260 },
+      { key: "large", label: "Large", price: 380 }
+    ],
     defaultSize: "medium"
   },
   {
@@ -168,11 +216,15 @@ const MENU_ITEMS = [
     icon: "🍢",
     rating: "4.8",
     votes: "102",
-    desc: "Rich tandoori gravy sauce topped with marinated paneer, capsicum, olives & paprika.",
+    desc: "Paneer, tandoori, capsicum, olive, red paprika.",
     tags: ["Tandoori"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 160, medium: 260, large: 380 },
+    sizes: [
+      { key: "small", label: "Small", price: 160 },
+      { key: "medium", label: "Medium", price: 260 },
+      { key: "large", label: "Large", price: 380 }
+    ],
     defaultSize: "medium"
   },
   {
@@ -182,11 +234,15 @@ const MENU_ITEMS = [
     icon: "🌽",
     rating: "4.6",
     votes: "89",
-    desc: "Golden sweet corn kernels smothered in molten mozzarella cheese & capsicum.",
+    desc: "Sweet corn, cheese, capsicum.",
     tags: ["Kids Fav"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 150, medium: 240, large: 350 },
+    sizes: [
+      { key: "small", label: "Small", price: 150 },
+      { key: "medium", label: "Medium", price: 240 },
+      { key: "large", label: "Large", price: 350 }
+    ],
     defaultSize: "small"
   },
   {
@@ -196,25 +252,33 @@ const MENU_ITEMS = [
     icon: "🧀",
     rating: "4.8",
     votes: "98",
-    desc: "Double dose of gooey mozzarella and processed cheese with your favorite toppings.",
+    desc: "Mozzarella, processed cheese, choice of veggie.",
     tags: ["Cheesy"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 180, medium: 260, large: 360 },
+    sizes: [
+      { key: "small", label: "Small", price: 180 },
+      { key: "medium", label: "Medium", price: 260 },
+      { key: "large", label: "Large", price: 360 }
+    ],
     defaultSize: "medium"
   },
   {
     id: "piz-spl-mushroom",
     categoryId: "pizzas",
-    name: "Special Mushroom Pizza",
+    name: "Spl Mushroom Pizza",
     icon: "🍄",
     rating: "4.6",
     votes: "64",
-    desc: "Fresh button mushrooms, liquid melted cheese, mozzarella blend and sliced black olives.",
+    desc: "Mozzarella, liquid cheese, mushroom, olive.",
     tags: ["Mushroom"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 180, medium: 260, large: 360 },
+    sizes: [
+      { key: "small", label: "Small", price: 180 },
+      { key: "medium", label: "Medium", price: 260 },
+      { key: "large", label: "Large", price: 360 }
+    ],
     defaultSize: "medium"
   },
   {
@@ -224,28 +288,34 @@ const MENU_ITEMS = [
     icon: "💥",
     rating: "4.9",
     votes: "160",
-    desc: "Decadent crust bursting with oozing hot liquid mozzarella, processed cheese & premium veggies.",
+    desc: "Mozzarella, processed, filter cheese, choice of veggie.",
     tags: ["Bestseller", "Must Try"],
     isVeg: true,
     hasSizes: true,
-    prices: { small: 200, medium: 300, large: 450 },
+    sizes: [
+      { key: "small", label: "Small", price: 200 },
+      { key: "medium", label: "Medium", price: 300 },
+      { key: "large", label: "Large", price: 450 }
+    ],
     defaultSize: "medium"
   },
   {
     id: "piz-extra-cheese",
     categoryId: "pizzas",
-    name: "Extra Cheese Add-on",
+    name: "Extra Cheese",
     icon: "🧀",
     rating: "4.9",
     votes: "210",
-    desc: "Add an extra generous layer of molten mozzarella cheese to any pizza.",
+    desc: "Extra layer of molten mozzarella cheese on any pizza.",
     tags: ["Add-on"],
     isVeg: true,
     hasSizes: false,
     price: 50
   },
 
-  // --- BURGERS ---
+  // ==========================================
+  // 2. BURGERS
+  // ==========================================
   {
     id: "bur-classic-veg",
     categoryId: "burgers",
@@ -253,7 +323,7 @@ const MENU_ITEMS = [
     icon: "🍔",
     rating: "4.5",
     votes: "72",
-    desc: "Crisp seasoned veggie patty with sliced tomato, crisp onion & house mayo sauce.",
+    desc: "Crisp seasoned veggie patty with fresh sliced veggies and tasty mayo.",
     tags: ["Classic"],
     isVeg: true,
     hasSizes: false,
@@ -266,7 +336,7 @@ const MENU_ITEMS = [
     icon: "🧀",
     rating: "4.7",
     votes: "88",
-    desc: "Crispy vegetable patty topped with melted cheese slice and creamy burger mayo.",
+    desc: "Crispy vegetable patty topped with melted cheese slice and creamy mayo.",
     tags: ["Cheesy"],
     isVeg: true,
     hasSizes: false,
@@ -279,7 +349,7 @@ const MENU_ITEMS = [
     icon: "🥔",
     rating: "4.4",
     votes: "65",
-    desc: "Golden crunchy spiced aloo patty with crunchy onions and tangy desi mint dressing.",
+    desc: "Golden crunchy spiced aloo patty with crunchy onions and tangy dressing.",
     tags: ["Crisp"],
     isVeg: true,
     hasSizes: false,
@@ -292,7 +362,7 @@ const MENU_ITEMS = [
     icon: "🧀",
     rating: "4.6",
     votes: "76",
-    desc: "Crunchy aloo tikki topped with molten cheddar slice and spicy burger spread.",
+    desc: "Crunchy aloo tikki topped with molten cheese slice and spicy spread.",
     tags: ["Popular"],
     isVeg: true,
     hasSizes: false,
@@ -305,7 +375,7 @@ const MENU_ITEMS = [
     icon: "🧀",
     rating: "4.8",
     votes: "94",
-    desc: "Thick grilled paneer patty seasoned with herbs, crunchy lettuce and gourmet mayo.",
+    desc: "Thick grilled paneer patty seasoned with spices, fresh veggies and mayo.",
     tags: ["High Protein"],
     isVeg: true,
     hasSizes: false,
@@ -318,7 +388,7 @@ const MENU_ITEMS = [
     icon: "👑",
     rating: "4.9",
     votes: "135",
-    desc: "Spiced paneer slab layered with double cheese slices, crispy veggies and royal sauce.",
+    desc: "Spiced paneer slab layered with melted cheese slice, crispy veggies and royal sauce.",
     tags: ["Bestseller", "Royal"],
     isVeg: true,
     hasSizes: false,
@@ -327,164 +397,137 @@ const MENU_ITEMS = [
   {
     id: "bur-pizzeria-spl",
     categoryId: "burgers",
-    name: "Pizzeria Spl. Monster Burger",
+    name: "Pizzeria Spl. Burger",
     icon: "⭐",
     rating: "4.9",
     votes: "112",
-    desc: "Our signature giant monster burger loaded with double patties, double cheese layers & chef's secret spicy relish.",
-    tags: ["Chef Special", "Monster"],
+    desc: "Chef's signature jumbo monster burger with double patties & double cheese layers.",
+    tags: ["Chef Special"],
     isVeg: true,
     hasSizes: false,
     price: 150
   },
-
-  // --- SANDWICHES ---
   {
-    id: "snd-aloo-cheese",
-    categoryId: "sandwiches",
-    name: "Aloo Cheese Slice Sandwich",
-    icon: "🥔",
-    rating: "4.5",
-    votes: "60",
-    desc: "Homestyle spiced potato mash with melted cheese slice grilled in butter.",
-    tags: ["Quick Bite"],
-    isVeg: true,
-    hasSizes: false,
-    price: 50
-  },
-  {
-    id: "snd-bread-butter-jam",
-    categoryId: "sandwiches",
-    name: "Bread Butter Jam Sandwich",
-    icon: "🍓",
-    rating: "4.3",
-    votes: "42",
-    desc: "Sweet and buttery layered classic fruit jam sandwich.",
-    tags: ["Sweet"],
-    isVeg: true,
-    hasSizes: false,
-    price: 50
-  },
-  {
-    id: "snd-veg-club-3layer",
-    categoryId: "sandwiches",
-    name: "Veg Club Sandwich (3 Layer)",
-    icon: "🥪",
-    rating: "4.9",
-    votes: "148",
-    desc: "Triple layer jumbo sandwich stacked with fresh veggies, mashed potato masala, cheese & green chutney.",
-    tags: ["Bestseller", "Jumbo"],
-    isVeg: true,
-    hasSizes: false,
-    price: 160
-  },
-  {
-    id: "snd-veg-coleslaw",
-    categoryId: "sandwiches",
-    name: "Veg Coleslaw Sandwich",
-    icon: "🥗",
+    id: "bur-veg-surprise",
+    categoryId: "burgers",
+    name: "Veg Surprise Burger",
+    icon: "🥦",
     rating: "4.6",
-    votes: "55",
-    desc: "Creamy shredded cabbage, carrots, bell peppers in smooth herb mayonnaise.",
-    tags: ["Creamy"],
+    votes: "54",
+    desc: "Loaded with crunchy garden veggies, surprise relish and tangy dressing.",
+    tags: ["Veggie"],
     isVeg: true,
     hasSizes: false,
-    price: 100
+    price: 90
   },
   {
-    id: "snd-jain",
-    categoryId: "sandwiches",
-    name: "Jain Sandwich",
-    icon: "🌿",
-    rating: "4.7",
-    votes: "62",
-    desc: "Specially crafted Jain sandwich with cheese, tomatoes, capsicum and pure Jain mint chutney.",
-    tags: ["Pure Jain"],
-    isVeg: true,
-    isJain: true,
-    hasSizes: false,
-    price: 120
-  },
-  {
-    id: "snd-ghughra",
-    categoryId: "sandwiches",
-    name: "Ghughra Sandwich",
+    id: "bur-chilli-lava",
+    categoryId: "burgers",
+    name: "Chilli Lava Burger",
     icon: "🌶️",
-    desc: "Spicy Surat style ghughra masala stuffing with capsicum, onion and double cheese.",
-    rating: "4.8",
-    votes: "86",
+    rating: "4.7",
+    votes: "68",
+    desc: "Spicy jalapenos and oozing chilli lava sauce over a crisp veggie patty.",
     tags: ["Spicy"],
     isVeg: true,
     hasSizes: false,
-    price: 160
+    price: 110
   },
   {
-    id: "snd-achari",
-    categoryId: "sandwiches",
-    name: "Achari Sandwich",
-    icon: "🥒",
-    rating: "4.6",
-    votes: "70",
-    desc: "Tangy pickle-spiced vegetable mix with melted cheese in grilled bread.",
-    tags: ["Tangy"],
+    id: "bur-crunchy-corn",
+    categoryId: "burgers",
+    name: "Crunchy Corn Burger",
+    icon: "🌽",
+    rating: "4.7",
+    votes: "62",
+    desc: "Golden sweet corn and cheese patty with crunchy fresh cabbage and dressing.",
+    tags: ["Crunchy"],
     isVeg: true,
     hasSizes: false,
-    price: 120
+    price: 130
   },
   {
-    id: "snd-grilled-jangali",
-    categoryId: "sandwiches",
-    name: "Grilled Veg Jangali Sandwich",
-    icon: "🥪",
-    rating: "4.7",
-    votes: "79",
-    desc: "Rustic spiced hearty vegetable filling grilled crisp with green herbs and cheese.",
-    tags: ["Grilled"],
+    id: "bur-maha-veggy",
+    categoryId: "burgers",
+    name: "Maha Veggy Burger",
+    icon: "🍔",
+    rating: "4.8",
+    votes: "81",
+    desc: "Extra large double veggie patties stacked high with cheese and spicy herb sauce.",
+    tags: ["Jumbo"],
     isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+  {
+    id: "bur-paneer-tikki",
+    categoryId: "burgers",
+    name: "Paneer Tikki Burger",
+    icon: "🧀",
+    rating: "4.6",
+    votes: "70",
+    desc: "Golden spiced paneer tikki patty with onions, tomatoes and green chutney mayo.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 90
+  },
+  {
+    id: "bur-chicken-tikki",
+    categoryId: "burgers",
+    name: "Chicken Tikki Burger",
+    icon: "🍗",
+    rating: "4.8",
+    votes: "95",
+    desc: "Crispy seasoned minced chicken patty with fresh lettuce and garlic mayo.",
+    tags: ["Non-Veg"],
+    isVeg: false,
     hasSizes: false,
     price: 100
   },
   {
-    id: "snd-grilled-paneer-tandoori",
-    categoryId: "sandwiches",
-    name: "Grilled Paneer Tandoori Sandwich",
-    icon: "🔥",
+    id: "bur-chicken-surprise",
+    categoryId: "burgers",
+    name: "Chicken Surprise Burger",
+    icon: "🍗",
+    rating: "4.8",
+    votes: "88",
+    desc: "Juicy chicken patty loaded with secret chef seasoning and spicy dressing.",
+    tags: ["Non-Veg", "Special"],
+    isVeg: false,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "bur-chicken-chilli-lava",
+    categoryId: "burgers",
+    name: "Chicken Chilli Lava Burger",
+    icon: "🌶️",
     rating: "4.9",
-    votes: "115",
-    desc: "Smoky tandoori marinated paneer slices grilled with cheese and mint sauce.",
-    tags: ["Bestseller", "Tandoori"],
-    isVeg: true,
+    votes: "105",
+    desc: "Fiery spicy chicken patty bursting with molten chilli cheese lava.",
+    tags: ["Non-Veg", "Spicy"],
+    isVeg: false,
     hasSizes: false,
-    price: 120
+    price: 140
   },
   {
-    id: "snd-grilled-paneer-makhani",
-    categoryId: "sandwiches",
-    name: "Grilled Paneer Makhani Sandwich",
-    icon: "🥘",
-    rating: "4.8",
-    votes: "92",
-    desc: "Rich buttery makhani sauce glazed cottage cheese grilled between crisp bread slices.",
-    tags: ["Rich"],
-    isVeg: true,
+    id: "bur-maha-chicken",
+    categoryId: "burgers",
+    name: "Maha Chicken Burger",
+    icon: "🍔",
+    rating: "4.9",
+    votes: "130",
+    desc: "Giant double chicken patties, double cheese slices and signature smoky BBQ sauce.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
     hasSizes: false,
-    price: 120
-  },
-  {
-    id: "snd-veg-garden-spl",
-    categoryId: "sandwiches",
-    name: "Veg Garden Spl. Sandwich",
-    icon: "🥕",
-    rating: "4.8",
-    votes: "97",
-    desc: "Loaded with garden fresh vegetables, sweet corn, olives, extra cheese & signature dressing.",
-    tags: ["Special"],
-    isVeg: true,
-    hasSizes: false,
-    price: 150
+    price: 140
   },
 
-  // --- PUFFS & BITES ---
+  // ==========================================
+  // 3. PUFFS & BITES
+  // ==========================================
   {
     id: "puff-paneer",
     categoryId: "puffs",
@@ -544,7 +587,7 @@ const MENU_ITEMS = [
     icon: "🍞",
     rating: "4.7",
     votes: "74",
-    desc: "2 pieces of toasted garlic bread with spiced green chillies and molten golden cheese.",
+    desc: "2 pieces of toasted garlic bread with spiced green chillies and molten cheese.",
     tags: ["2 Pieces"],
     isVeg: true,
     hasSizes: false,
@@ -564,7 +607,235 @@ const MENU_ITEMS = [
     price: 100
   },
 
-  // --- FRIES ---
+  // ==========================================
+  // 4. SANDWICHES
+  // ==========================================
+  {
+    id: "snd-aloo-cheese",
+    categoryId: "sandwiches",
+    name: "Aloo Cheese Slice Sandwich",
+    icon: "🥔",
+    rating: "4.5",
+    votes: "60",
+    desc: "Homestyle spiced potato mash with melted cheese slice grilled in butter.",
+    tags: ["Quick Bite"],
+    isVeg: true,
+    hasSizes: false,
+    price: 50
+  },
+  {
+    id: "snd-bread-butter-jam",
+    categoryId: "sandwiches",
+    name: "Bread Butter Jam",
+    icon: "🍓",
+    rating: "4.3",
+    votes: "42",
+    desc: "Sweet and buttery layered classic fruit jam sandwich.",
+    tags: ["Sweet"],
+    isVeg: true,
+    hasSizes: false,
+    price: 50
+  },
+  {
+    id: "snd-veg-club-3layer",
+    categoryId: "sandwiches",
+    name: "Veg Club Sandwich (3 Layer)",
+    icon: "🥪",
+    rating: "4.9",
+    votes: "148",
+    desc: "Triple layer jumbo sandwich stacked with fresh veggies, potato masala, cheese & chutney.",
+    tags: ["Bestseller", "Jumbo"],
+    isVeg: true,
+    hasSizes: false,
+    price: 160
+  },
+  {
+    id: "snd-veg-coleslaw",
+    categoryId: "sandwiches",
+    name: "Veg Coleslaw Sandwich",
+    icon: "🥗",
+    rating: "4.6",
+    votes: "55",
+    desc: "Creamy shredded cabbage, carrots, bell peppers in smooth herb mayonnaise.",
+    tags: ["Creamy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "snd-jain",
+    categoryId: "sandwiches",
+    name: "Jain Sandwich",
+    icon: "🌿",
+    rating: "4.7",
+    votes: "62",
+    desc: "Pure Jain sandwich with cheese, tomatoes, capsicum and Jain mint chutney.",
+    tags: ["Pure Jain"],
+    isVeg: true,
+    isJain: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "snd-ghughra",
+    categoryId: "sandwiches",
+    name: "Ghughra Sandwich",
+    icon: "🌶️",
+    desc: "Spicy Surat style ghughra masala stuffing with capsicum, onion and double cheese.",
+    rating: "4.8",
+    votes: "86",
+    tags: ["Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 160
+  },
+  {
+    id: "snd-achari",
+    categoryId: "sandwiches",
+    name: "Achari Sandwich",
+    icon: "🥒",
+    rating: "4.6",
+    votes: "70",
+    desc: "Tangy pickle-spiced vegetable mix with melted cheese in grilled bread.",
+    tags: ["Tangy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "snd-grilled-jangali",
+    categoryId: "sandwiches",
+    name: "Grilled Veg Jangali Sandwich",
+    icon: "🥪",
+    rating: "4.7",
+    votes: "79",
+    desc: "Rustic spiced hearty vegetable filling grilled crisp with green herbs and cheese.",
+    tags: ["Grilled"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "snd-grilled-paneer-tandoori",
+    categoryId: "sandwiches",
+    name: "Grilled Paneer Tandoori",
+    icon: "🔥",
+    rating: "4.9",
+    votes: "115",
+    desc: "Smoky tandoori marinated paneer slices grilled with cheese and mint sauce.",
+    tags: ["Bestseller", "Tandoori"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "snd-grilled-paneer-makhani",
+    categoryId: "sandwiches",
+    name: "Grilled Paneer Makhani",
+    icon: "🥘",
+    rating: "4.8",
+    votes: "92",
+    desc: "Rich buttery makhani sauce glazed cottage cheese grilled between crisp bread slices.",
+    tags: ["Rich"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "snd-veg-garden-spl",
+    categoryId: "sandwiches",
+    name: "Veg Garden Spl. Sandwich",
+    icon: "🥕",
+    rating: "4.8",
+    votes: "97",
+    desc: "Loaded with garden fresh vegetables, sweet corn, olives, extra cheese & dressing.",
+    tags: ["Special"],
+    isVeg: true,
+    hasSizes: false,
+    price: 150
+  },
+  {
+    id: "snd-veg-grill",
+    categoryId: "sandwiches",
+    name: "Veg Grill Sandwich",
+    icon: "🥪",
+    rating: "4.6",
+    votes: "64",
+    desc: "Classic butter-grilled vegetable sandwich with spiced green chutney.",
+    tags: ["Grilled"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "snd-paneer-tikka",
+    categoryId: "sandwiches",
+    name: "Paneer Tikka Sandwich",
+    icon: "🍢",
+    rating: "4.8",
+    votes: "88",
+    desc: "Chunks of spiced paneer tikka with capsicum, cheese and grilled to perfection.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 125
+  },
+  {
+    id: "snd-italian-veg",
+    categoryId: "sandwiches",
+    name: "Italian Veg Sandwich",
+    icon: "🇮🇹",
+    rating: "4.7",
+    votes: "72",
+    desc: "Italian herbs, olives, capsicum, mozzarella and marinara sauce grilled crisp.",
+    tags: ["Italian"],
+    isVeg: true,
+    hasSizes: false,
+    price: 135
+  },
+  {
+    id: "snd-chicken-grill",
+    categoryId: "sandwiches",
+    name: "Chicken Grill Sandwich",
+    icon: "🥪",
+    rating: "4.8",
+    votes: "102",
+    desc: "Tender shredded chicken, house spices, melted cheese grilled golden.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "snd-italian-chicken",
+    categoryId: "sandwiches",
+    name: "Italian Chicken Sandwich",
+    icon: "🇮🇹",
+    rating: "4.9",
+    votes: "118",
+    desc: "Herb-seasoned chicken slices with Italian cheese blend, olives and marinara glaze.",
+    tags: ["Non-Veg", "Italian"],
+    isVeg: false,
+    hasSizes: false,
+    price: 160
+  },
+  {
+    id: "snd-chicken-tikka",
+    categoryId: "sandwiches",
+    name: "Chicken Tikka Sandwich",
+    icon: "🍢",
+    rating: "4.9",
+    votes: "125",
+    desc: "Smoky tandoori chicken tikka chunks grilled with onions, cheese & mint chutney.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: false,
+    price: 150
+  },
+
+  // ==========================================
+  // 5. FRIES & FRIED CHICKEN
+  // ==========================================
   {
     id: "fry-french",
     categoryId: "fries",
@@ -585,7 +856,7 @@ const MENU_ITEMS = [
     icon: "🧂",
     rating: "4.5",
     votes: "65",
-    desc: "Seasoned with fine sea salt for the authentic crunch taste.",
+    desc: "Seasoned with fine sea salt for the authentic crisp taste.",
     tags: ["Crispy"],
     isVeg: true,
     hasSizes: false,
@@ -607,7 +878,7 @@ const MENU_ITEMS = [
   {
     id: "fry-overloaded",
     categoryId: "fries",
-    name: "Over Loaded Cheese Fries",
+    name: "Over Loaded Fries",
     icon: "🧀",
     rating: "4.9",
     votes: "152",
@@ -617,8 +888,42 @@ const MENU_ITEMS = [
     hasSizes: false,
     price: 150
   },
+  {
+    id: "fry-hot-spicy",
+    categoryId: "fries",
+    name: "Hot & Spicy Fries",
+    icon: "🔥",
+    rating: "4.7",
+    votes: "76",
+    desc: "Extra spicy red pepper and herb tossed crisp potato fries.",
+    tags: ["Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "chk-bucket",
+    categoryId: "fries",
+    name: "Fried Chicken Bucket",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "180",
+    desc: "Super crispy golden fried chicken drumsticks and pieces with secret dipping sauces.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "2pc", label: "2 Pcs Bucket", price: 140 },
+      { key: "4pc", label: "4 Pcs Bucket", price: 270 },
+      { key: "6pc", label: "6 Pcs Bucket", price: 400 },
+      { key: "8pc", label: "8 Pcs Bucket", price: 540 }
+    ],
+    defaultSize: "2pc"
+  },
 
-  // --- SHAKES ---
+  // ==========================================
+  // 6. SHAKES
+  // ==========================================
   {
     id: "shk-cold-coffee",
     categoryId: "shakes",
@@ -635,7 +940,7 @@ const MENU_ITEMS = [
   {
     id: "shk-milk-shake",
     categoryId: "shakes",
-    name: "Vanilla Milk Shake",
+    name: "Milk Shake",
     icon: "🥛",
     rating: "4.5",
     votes: "55",
@@ -763,7 +1068,9 @@ const MENU_ITEMS = [
     price: 150
   },
 
-  // --- MOJITOS ---
+  // ==========================================
+  // 7. MOJITOS
+  // ==========================================
   {
     id: "moj-green-granny",
     categoryId: "mojitos",
@@ -819,7 +1126,7 @@ const MENU_ITEMS = [
   {
     id: "moj-kala-khatta",
     categoryId: "mojitos",
-    name: "Kala Khatta Mojito",
+    name: "Kala Khatta",
     icon: "🍇",
     rating: "4.7",
     votes: "79",
@@ -845,18 +1152,115 @@ const MENU_ITEMS = [
   {
     id: "moj-mint",
     categoryId: "mojitos",
-    name: "Virgin Mint Mojito",
+    name: "Mint Mojito",
     icon: "🌿",
     rating: "4.8",
     votes: "95",
-    desc: "Classic Cuban virgin mojito with crushed fresh garden mint and lime.",
+    desc: "Classic refreshing virgin mojito with crushed fresh garden mint and lime.",
     tags: ["Classic"],
     isVeg: true,
     hasSizes: false,
     price: 70
   },
 
-  // --- DESSERTS & CAKES ---
+  // ==========================================
+  // 8. BEVERAGES & TEA
+  // ==========================================
+  {
+    id: "bev-water",
+    categoryId: "beverages",
+    name: "Mineral Water",
+    icon: "💧",
+    rating: "4.9",
+    votes: "120",
+    desc: "Packaged purified chilled drinking water bottle (1 Litre).",
+    tags: ["Chilled"],
+    isVeg: true,
+    hasSizes: false,
+    price: 20
+  },
+  {
+    id: "bev-lassi",
+    categoryId: "beverages",
+    name: "Lassi",
+    icon: "🥛",
+    rating: "4.8",
+    votes: "85",
+    desc: "Traditional creamy sweet Punjabi curd lassi topped with malai.",
+    tags: ["Desi", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+  {
+    id: "bev-cold-drink",
+    categoryId: "beverages",
+    name: "Cold Drink",
+    icon: "🥤",
+    rating: "4.7",
+    votes: "140",
+    desc: "Chilled carbonated soft drink bottle/can.",
+    tags: ["Chilled"],
+    isVeg: true,
+    hasSizes: false,
+    price: 25
+  },
+  {
+    id: "bev-hot-coffee",
+    categoryId: "beverages",
+    name: "Hot Coffee",
+    icon: "☕",
+    rating: "4.6",
+    votes: "78",
+    desc: "Rich brewed hot coffee with frothy steamed milk.",
+    tags: ["Hot"],
+    isVeg: true,
+    hasSizes: false,
+    price: 30
+  },
+  {
+    id: "bev-tea",
+    categoryId: "beverages",
+    name: "Tea",
+    icon: "☕",
+    rating: "4.8",
+    votes: "135",
+    desc: "Special masala chai brewed with cardamom, ginger and rich milk.",
+    tags: ["Hot Chai"],
+    isVeg: true,
+    hasSizes: false,
+    price: 25
+  },
+  {
+    id: "bev-masala-coke",
+    categoryId: "beverages",
+    name: "Masala Coke",
+    icon: "🍹",
+    rating: "4.7",
+    votes: "62",
+    desc: "Spiced chilled Coca-Cola with roasted cumin, chaat masala and lime.",
+    tags: ["Chatpata"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "bev-dahi",
+    categoryId: "beverages",
+    name: "Dahi",
+    icon: "🥣",
+    rating: "4.6",
+    votes: "50",
+    desc: "Fresh, thick and sweet homestyle set curd bowl.",
+    tags: ["Dairy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+
+  // ==========================================
+  // 9. DESSERTS & PASTRIES
+  // ==========================================
   {
     id: "dst-chocolate-donut",
     categoryId: "desserts",
@@ -873,7 +1277,7 @@ const MENU_ITEMS = [
   {
     id: "dst-lava-cake",
     categoryId: "desserts",
-    name: "Choco Lava Cake",
+    name: "Lava Cakes",
     icon: "🌋",
     rating: "4.9",
     votes: "185",
@@ -912,7 +1316,7 @@ const MENU_ITEMS = [
   {
     id: "dst-chocolate-pastry",
     categoryId: "desserts",
-    name: "Chocolate Truffle Pastry",
+    name: "Chocolate Pastry",
     icon: "🍫",
     rating: "4.8",
     votes: "92",
@@ -930,7 +1334,7 @@ const MENU_ITEMS = [
     rating: "4.9",
     votes: "118",
     desc: "Fusion dessert of soft cardamom sponge soaked in aromatic saffron rasmalai milk.",
-    tags: ["Indian Fusion", "Popular"],
+    tags: ["Fusion", "Popular"],
     isVeg: true,
     hasSizes: false,
     price: 60
@@ -956,7 +1360,7 @@ const MENU_ITEMS = [
     rating: "4.8",
     votes: "105",
     desc: "Dense dark chocolate walnut brownie served warm with chocolate drizzle.",
-    tags: ["Warm Brownie"],
+    tags: ["Warm"],
     isVeg: true,
     hasSizes: false,
     price: 80
@@ -1038,6 +1442,3652 @@ const MENU_ITEMS = [
     isVeg: true,
     hasSizes: false,
     price: 70
+  },
+
+  // ==========================================
+  // 10. INDIAN NON VEG
+  // ==========================================
+  {
+    id: "nv-chk-do-pyaza",
+    categoryId: "nonveg",
+    name: "Chicken Do Pyaza",
+    icon: "🧅",
+    rating: "4.8",
+    votes: "165",
+    desc: "Succulent chicken cooked in a rich onion-dominant spicy gravy with whole spices.",
+    tags: ["Non-Veg", "Popular"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 160 },
+      { key: "full", label: "Full Portion", price: 260 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-chk-masala",
+    categoryId: "nonveg",
+    name: "Chicken Masala",
+    icon: "🌶️",
+    rating: "4.8",
+    votes: "145",
+    desc: "Classic Indian spiced chicken curry with rich tomato and onion gravy.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 170 },
+      { key: "full", label: "Full Portion", price: 270 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-butter-chicken",
+    categoryId: "nonveg",
+    name: "Butter Chicken",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "210",
+    desc: "Tender roasted chicken simmered in a velvety buttery tomato makhani sauce.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 190 },
+      { key: "full", label: "Full Portion", price: 300 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-chk-kadhai",
+    categoryId: "nonveg",
+    name: "Chicken Kadhai",
+    icon: "🍲",
+    rating: "4.8",
+    votes: "138",
+    desc: "Spiced chicken tossed with capsicum, onion chunks and freshly ground kadhai masala.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 160 },
+      { key: "full", label: "Full Portion", price: 260 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-chk-handi",
+    categoryId: "nonveg",
+    name: "Chicken Handi",
+    icon: "🏺",
+    rating: "4.8",
+    votes: "125",
+    desc: "Slow-cooked chicken in clay handi style rich aromatic gravy with fresh coriander.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 180 },
+      { key: "full", label: "Full Portion", price: 280 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-chk-dehati",
+    categoryId: "nonveg",
+    name: "Chicken Dehati",
+    icon: "🌾",
+    rating: "4.9",
+    votes: "175",
+    desc: "Authentic rustic Bihari dehati chicken curry slow-cooked with whole garlic pods and desi spices.",
+    tags: ["Non-Veg", "Desi Special"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 250 },
+      { key: "full", label: "Full Portion", price: 450 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-chk-kadhi",
+    categoryId: "nonveg",
+    name: "Chicken Kadhi",
+    icon: "🥣",
+    rating: "4.6",
+    votes: "70",
+    desc: "Homestyle chicken cooked in a light aromatic spiced curry.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 150 },
+      { key: "full", label: "Full Portion", price: 260 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-chk-stew",
+    categoryId: "nonveg",
+    name: "Chicken Stew",
+    icon: "🍲",
+    rating: "4.7",
+    votes: "64",
+    desc: "Mildly spiced whole spice chicken stew with tender sliced onions.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 270
+  },
+  {
+    id: "nv-chk-bhuna",
+    categoryId: "nonveg",
+    name: "Chicken Bhuna",
+    icon: "🍳",
+    rating: "4.8",
+    votes: "92",
+    desc: "Roasted chicken pan-fried in rich semi-dry caramelized masala gravy.",
+    tags: ["Non-Veg", "Spicy"],
+    isVeg: false,
+    hasSizes: false,
+    price: 290
+  },
+  {
+    id: "nv-chk-kassa",
+    categoryId: "nonveg",
+    name: "Chicken Kassa",
+    icon: "🍛",
+    rating: "4.8",
+    votes: "115",
+    desc: "Thick, dark roasted spicy Bengali style chicken kassa.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 160 },
+      { key: "full", label: "Full Portion", price: 260 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-chk-lababdar",
+    categoryId: "nonveg",
+    name: "Chicken Lababdar",
+    icon: "🏺",
+    rating: "4.8",
+    votes: "98",
+    desc: "Rich Mughlai chicken dish made with grated cheese, cashews and creamy onion-tomato gravy.",
+    tags: ["Non-Veg", "Royal"],
+    isVeg: false,
+    hasSizes: false,
+    price: 300
+  },
+  {
+    id: "nv-chk-lajwab",
+    categoryId: "nonveg",
+    name: "Chicken Lajwab",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "105",
+    desc: "Exquisite chef-special creamy aromatic chicken delicacy.",
+    tags: ["Non-Veg", "Chef Special"],
+    isVeg: false,
+    hasSizes: false,
+    price: 300
+  },
+  {
+    id: "nv-chk-tikka-butter-masala",
+    categoryId: "nonveg",
+    name: "Chicken Tikka Butter Masala",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "155",
+    desc: "Smoky tandoori chicken tikka pieces in rich creamy butter masala gravy.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: false,
+    price: 330
+  },
+  {
+    id: "nv-chk-tikka-masala",
+    categoryId: "nonveg",
+    name: "Chicken Tikka Masala",
+    icon: "🌶️",
+    rating: "4.8",
+    votes: "135",
+    desc: "Tandoori grilled chicken tikka folded into spiced masala sauce.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 320
+  },
+  {
+    id: "nv-chk-tawa-masala",
+    categoryId: "nonveg",
+    name: "Chicken Tawa Masala",
+    icon: "🍳",
+    rating: "4.7",
+    votes: "88",
+    desc: "Street style tawa seared chicken tossed with green chillies and fresh ginger juliennes.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 300
+  },
+  {
+    id: "nv-chk-reshmi-butter",
+    categoryId: "nonveg",
+    name: "Chicken Reshmi Butter Masala",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "120",
+    desc: "Silky reshmi chicken kebabs simmered in velvety cashew butter gravy.",
+    tags: ["Non-Veg", "Royal"],
+    isVeg: false,
+    hasSizes: false,
+    price: 340
+  },
+  {
+    id: "nv-chk-keema-kaleji",
+    categoryId: "nonveg",
+    name: "Chicken Keema With Kaleji",
+    icon: "🍳",
+    rating: "4.7",
+    votes: "82",
+    desc: "Minced chicken cooked alongside tender chicken liver in robust bhuna masala.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "nv-chk-bharta",
+    categoryId: "nonveg",
+    name: "Chicken Bharta",
+    icon: "🥣",
+    rating: "4.8",
+    votes: "95",
+    desc: "Kolkata style shredded chicken in creamy egg-enriched yellow gravy.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 270
+  },
+  {
+    id: "nv-chk-patiala",
+    categoryId: "nonveg",
+    name: "Chicken Patiala",
+    icon: "👑",
+    rating: "4.8",
+    votes: "110",
+    desc: "Rich Punjabi chicken dish enveloped in spiced omelette and cashew gravy.",
+    tags: ["Non-Veg", "Special"],
+    isVeg: false,
+    hasSizes: false,
+    price: 300
+  },
+  {
+    id: "nv-murgh-mussalam",
+    categoryId: "nonveg",
+    name: "Murgh Mussalam",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "90",
+    desc: "Royal Mughlai whole chicken delicacy slow-cooked with rich almond-saffron gravy.",
+    tags: ["Non-Veg", "Grand Feast"],
+    isVeg: false,
+    hasSizes: false,
+    price: 600
+  },
+  {
+    id: "nv-chk-punjabi",
+    categoryId: "nonveg",
+    name: "Chicken Punjabi",
+    icon: "🌾",
+    rating: "4.8",
+    votes: "88",
+    desc: "Robust spicy North Indian Punjabi style highway chicken gravy.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 320
+  },
+  {
+    id: "nv-chk-mughlai",
+    categoryId: "nonveg",
+    name: "Chicken Mughlai",
+    icon: "👑",
+    rating: "4.8",
+    votes: "92",
+    desc: "Nutty egg-infused rich Mughlai chicken curry fit for celebrations.",
+    tags: ["Non-Veg", "Royal"],
+    isVeg: false,
+    hasSizes: false,
+    price: 320
+  },
+  {
+    id: "nv-chk-chatpata",
+    categoryId: "nonveg",
+    name: "Chicken Chatpata",
+    icon: "🍋",
+    rating: "4.7",
+    votes: "75",
+    desc: "Zesty, spicy and tangy chicken gravy with lemon and chaat spices.",
+    tags: ["Non-Veg", "Tangy"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 170 },
+      { key: "full", label: "Full Portion", price: 270 }
+    ],
+    defaultSize: "half"
+  },
+  // Mutton
+  {
+    id: "nv-mut-do-pyaza",
+    categoryId: "nonveg",
+    name: "Mutton Do Pyaza",
+    icon: "🧅",
+    rating: "4.9",
+    votes: "140",
+    desc: "Tender goat meat slow-simmered with caramelised and diced onions.",
+    tags: ["Mutton", "Popular"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 180 },
+      { key: "full", label: "Full Portion", price: 320 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-mut-kadhi",
+    categoryId: "nonveg",
+    name: "Mutton Kadhi",
+    icon: "🥣",
+    rating: "4.7",
+    votes: "82",
+    desc: "Homestyle succulent mutton curry cooked in traditional spices.",
+    tags: ["Mutton"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 180 },
+      { key: "full", label: "Full Portion", price: 320 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-mut-kadhai",
+    categoryId: "nonveg",
+    name: "Mutton Kadhai",
+    icon: "🍲",
+    rating: "4.8",
+    votes: "112",
+    desc: "Mutton pieces cooked with crunchy capsicum, tomatoes and freshly pounded spices.",
+    tags: ["Mutton"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 190 },
+      { key: "full", label: "Full Portion", price: 330 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-mut-handi",
+    categoryId: "nonveg",
+    name: "Mutton Handi",
+    icon: "🏺",
+    rating: "4.9",
+    votes: "165",
+    desc: "Handi slow cooked clay-pot mutton with fall-off-the-bone tender meat.",
+    tags: ["Mutton", "Bestseller"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 200 },
+      { key: "full", label: "Full Portion", price: 340 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-mut-bhuna",
+    categoryId: "nonveg",
+    name: "Mutton Bhuna (2PC)",
+    icon: "🍖",
+    rating: "4.8",
+    votes: "95",
+    desc: "2 pieces of pan-roasted mutton in dark dry aromatic spice blend.",
+    tags: ["Mutton", "2 Pieces"],
+    isVeg: false,
+    hasSizes: false,
+    price: 200
+  },
+  {
+    id: "nv-mut-rogan-josh",
+    categoryId: "nonveg",
+    name: "Mutton Rogan Josh",
+    icon: "🌶️",
+    rating: "4.9",
+    votes: "130",
+    desc: "Kashmiri style aromatic mutton gravy infused with fennel and Kashmiri red chillies.",
+    tags: ["Mutton", "Royal"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 190 },
+      { key: "full", label: "Full Portion", price: 320 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-mut-masala",
+    categoryId: "nonveg",
+    name: "Mutton Masala",
+    icon: "🍳",
+    rating: "4.8",
+    votes: "118",
+    desc: "Rich spiced mutton curry in thick onion, ginger-garlic and tomato masala.",
+    tags: ["Mutton"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 200 },
+      { key: "full", label: "Full Portion", price: 340 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "nv-mut-dehati",
+    categoryId: "nonveg",
+    name: "Mutton Dehati",
+    icon: "🌾",
+    rating: "4.9",
+    votes: "190",
+    desc: "Legendary Bihari rustic mutton cooked with whole garlic and cold-pressed mustard oil.",
+    tags: ["Mutton", "Desi Special"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 180 },
+      { key: "full", label: "Full Portion", price: 320 }
+    ],
+    defaultSize: "half"
+  },
+  // Egg & Fish
+  {
+    id: "nv-anda-curry",
+    categoryId: "nonveg",
+    name: "Anda Curry",
+    icon: "🥚",
+    rating: "4.7",
+    votes: "125",
+    desc: "Boiled and fried eggs simmered in homestyle spiced onion-tomato curry.",
+    tags: ["Egg", "Popular"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "2pc", label: "2 Pcs (Half)", price: 90 },
+      { key: "4pc", label: "4 Pcs (Full)", price: 160 }
+    ],
+    defaultSize: "2pc"
+  },
+  {
+    id: "nv-anda-do-pyaza",
+    categoryId: "nonveg",
+    name: "Anda Do Pyaza",
+    icon: "🥚",
+    rating: "4.7",
+    votes: "90",
+    desc: "Eggs cooked with double the onions in savory masala gravy.",
+    tags: ["Egg"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "2pc", label: "2 Pcs (Half)", price: 100 },
+      { key: "4pc", label: "4 Pcs (Full)", price: 170 }
+    ],
+    defaultSize: "2pc"
+  },
+  {
+    id: "nv-anda-masala",
+    categoryId: "nonveg",
+    name: "Anda Masala",
+    icon: "🥚",
+    rating: "4.8",
+    votes: "105",
+    desc: "Fried eggs simmered in spicy masala gravy with fresh ginger and coriander.",
+    tags: ["Egg"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "2pc", label: "2 Pcs (Half)", price: 110 },
+      { key: "4pc", label: "4 Pcs (Full)", price: 170 }
+    ],
+    defaultSize: "2pc"
+  },
+  {
+    id: "nv-anda-kadhai",
+    categoryId: "nonveg",
+    name: "Anda Kadhai",
+    icon: "🥚",
+    rating: "4.6",
+    votes: "75",
+    desc: "Eggs tossed with bell peppers, onions and crushed kadhai masala.",
+    tags: ["Egg"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "2pc", label: "2 Pcs (Half)", price: 90 },
+      { key: "4pc", label: "4 Pcs (Full)", price: 160 }
+    ],
+    defaultSize: "2pc"
+  },
+  {
+    id: "nv-anda-handi",
+    categoryId: "nonveg",
+    name: "Anda Handi",
+    icon: "🥚",
+    rating: "4.7",
+    votes: "85",
+    desc: "Handi style slow-simmered egg curry with aromatic spices.",
+    tags: ["Egg"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "2pc", label: "2 Pcs (Half)", price: 110 },
+      { key: "4pc", label: "4 Pcs (Full)", price: 180 }
+    ],
+    defaultSize: "2pc"
+  },
+  {
+    id: "nv-anda-butter-masala",
+    categoryId: "nonveg",
+    name: "Anda Butter Masala",
+    icon: "🧈",
+    rating: "4.8",
+    votes: "95",
+    desc: "Eggs submerged in rich butter and cream tomato makhani sauce.",
+    tags: ["Egg", "Creamy"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "2pc", label: "2 Pcs (Half)", price: 110 },
+      { key: "4pc", label: "4 Pcs (Full)", price: 180 }
+    ],
+    defaultSize: "2pc"
+  },
+  {
+    id: "nv-anda-bhujia",
+    categoryId: "nonveg",
+    name: "Anda Bhujia",
+    icon: "🥚",
+    rating: "4.6",
+    votes: "80",
+    desc: "Spiced scrambled egg bhurji with onions, green chillies and tomatoes.",
+    tags: ["Egg", "Quick Bite"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "2pc", label: "2 Pcs", price: 50 },
+      { key: "full", label: "Full Portion", price: 100 }
+    ],
+    defaultSize: "2pc"
+  },
+  {
+    id: "nv-fish-kadhi",
+    categoryId: "nonveg",
+    name: "Fish Kadhi (4PC)",
+    icon: "🐟",
+    rating: "4.8",
+    votes: "110",
+    desc: "4 pieces of fresh river fish cooked in flavorful mustard and garlic gravy.",
+    tags: ["Fish", "4 Pieces"],
+    isVeg: false,
+    hasSizes: false,
+    price: 240
+  },
+
+  // ==========================================
+  // 11. STARTERS & SNACKS
+  // ==========================================
+  {
+    id: "st-papad-dry",
+    categoryId: "starters",
+    name: "Papad Dry",
+    icon: "🫓",
+    rating: "4.5",
+    votes: "40",
+    desc: "Crispy roasted papad.",
+    tags: ["Crunchy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 15
+  },
+  {
+    id: "st-papad-fry",
+    categoryId: "starters",
+    name: "Papad Fry",
+    icon: "🫓",
+    rating: "4.5",
+    votes: "45",
+    desc: "Deep fried crisp papad.",
+    tags: ["Crunchy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 15
+  },
+  {
+    id: "st-papad-masala",
+    categoryId: "starters",
+    name: "Papad Masala",
+    icon: "🧅",
+    rating: "4.7",
+    votes: "75",
+    desc: "Fried papad topped with diced onions, tomatoes, chillies and chaat masala.",
+    tags: ["Chatpata"],
+    isVeg: true,
+    hasSizes: false,
+    price: 50
+  },
+  {
+    id: "st-chicken-lollipop",
+    categoryId: "starters",
+    name: "Chicken Lollipop",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "190",
+    desc: "Crispy fried chicken wingettes tossed in spicy schezwan glaze.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "4pc", label: "4 Pieces", price: 210 },
+      { key: "6pc", label: "6 Pieces", price: 290 }
+    ],
+    defaultSize: "4pc"
+  },
+  {
+    id: "st-veg-manchurian-dry",
+    categoryId: "starters",
+    name: "Veg Manchurian Dry",
+    icon: "🥦",
+    rating: "4.6",
+    votes: "82",
+    desc: "Crispy vegetable balls tossed in dry Indo-Chinese soy ginger sauce.",
+    tags: ["Chinese"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 90 },
+      { key: "full", label: "Full Portion", price: 160 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "st-paneer-manchurian-dry",
+    categoryId: "starters",
+    name: "Paneer Manchurian Dry",
+    icon: "🧀",
+    rating: "4.7",
+    votes: "95",
+    desc: "Crisp fried paneer cubes wok tossed with garlic, scallions and soy glaze.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 110 },
+      { key: "full", label: "Full Portion", price: 200 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "st-paneer-chilli-dry",
+    categoryId: "starters",
+    name: "Paneer Chilli Dry",
+    icon: "🌶️",
+    rating: "4.8",
+    votes: "140",
+    desc: "Batter fried cottage cheese cubes tossed with crunchy capsicum, onion and chillies.",
+    tags: ["Bestseller", "Spicy"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 110 },
+      { key: "full", label: "Full Portion", price: 200 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "st-mushroom-chilli-dry",
+    categoryId: "starters",
+    name: "Mushroom Chilli Dry",
+    icon: "🍄",
+    rating: "4.7",
+    votes: "88",
+    desc: "Crispy button mushrooms tossed in fiery chilli garlic wok sauce.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 220 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "st-chicken-chilli-dry-bone",
+    categoryId: "starters",
+    name: "Chicken Chilli Dry (Bone)",
+    icon: "🍗",
+    rating: "4.8",
+    votes: "130",
+    desc: "Bone-in chicken tossed with green chillies, bell peppers and Chinese spices.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 110 },
+      { key: "full", label: "Full Portion", price: 200 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "st-chicken-chilli-dry-boneless",
+    categoryId: "starters",
+    name: "Chicken Chilli Dry (Boneless)",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "165",
+    desc: "Succulent boneless chicken chunks wok-tossed with peppers and dark soy glaze.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 220 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "st-veg-pakoda",
+    categoryId: "starters",
+    name: "Veg Pakoda",
+    icon: "🥦",
+    rating: "4.6",
+    votes: "70",
+    desc: "Golden crispy mixed vegetable fritters served with tangy chutney.",
+    tags: ["Crispy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+  {
+    id: "st-paneer-pakoda",
+    categoryId: "starters",
+    name: "Paneer Pakoda",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "95",
+    desc: "Soft paneer slices dipped in spiced besan batter and fried golden.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "st-chicken-pakoda",
+    categoryId: "starters",
+    name: "Chicken Pakoda",
+    icon: "🍗",
+    rating: "4.8",
+    votes: "115",
+    desc: "Marinated juicy chicken chunks fried in spiced gram flour batter.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 170
+  },
+  {
+    id: "st-potato-chilli-dry",
+    categoryId: "starters",
+    name: "Potato Chilli Dry",
+    icon: "🥔",
+    rating: "4.5",
+    votes: "60",
+    desc: "Crispy potato wedges tossed with garlic, green chillies and spring onions.",
+    tags: ["Crispy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+  {
+    id: "st-finger-chips",
+    categoryId: "starters",
+    name: "Finger Chips",
+    icon: "🍟",
+    rating: "4.5",
+    votes: "75",
+    desc: "Homestyle crunchy potato finger chips.",
+    tags: ["Classic"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "st-chhola-bhatura",
+    categoryId: "starters",
+    name: "Chhola Bhatura",
+    icon: "🫓",
+    rating: "4.9",
+    votes: "160",
+    desc: "2 fluffy hot bhaturas served with spicy Punjabi chhole, onions and pickle.",
+    tags: ["Desi Special", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "st-babycorn-crispy",
+    categoryId: "starters",
+    name: "Babycorn Crispy",
+    icon: "🌽",
+    rating: "4.7",
+    votes: "84",
+    desc: "Crunchy batter fried tender baby corn tossed in sweet and spicy wok sauce.",
+    tags: ["Crunchy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 220
+  },
+
+  // ==========================================
+  // 12. SALAD & RAITA
+  // ==========================================
+  {
+    id: "sal-chota",
+    categoryId: "salad_raita",
+    name: "Chota Salad",
+    icon: "🥬",
+    rating: "4.4",
+    votes: "40",
+    desc: "Fresh sliced cucumber, tomato, carrot and lemon (Small portion).",
+    tags: ["Fresh"],
+    isVeg: true,
+    hasSizes: false,
+    price: 50
+  },
+  {
+    id: "sal-bada",
+    categoryId: "salad_raita",
+    name: "Bada Salad",
+    icon: "🥗",
+    rating: "4.6",
+    votes: "65",
+    desc: "Generous platter of garden fresh sliced salad veggies with green chillies.",
+    tags: ["Fresh"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+  {
+    id: "sal-onion",
+    categoryId: "salad_raita",
+    name: "Onion Salad",
+    icon: "🧅",
+    rating: "4.5",
+    votes: "55",
+    desc: "Sliced onion rings sprinkled with chaat masala and lemon.",
+    tags: ["Zesty"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+  {
+    id: "sal-fruit",
+    categoryId: "salad_raita",
+    name: "Fruit Salad",
+    icon: "🍉",
+    rating: "4.7",
+    votes: "72",
+    desc: "Seasonal fresh sliced fruit bowl with mild spices.",
+    tags: ["Fruity"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "rai-onion",
+    categoryId: "salad_raita",
+    name: "Onion Raita",
+    icon: "🧅",
+    rating: "4.6",
+    votes: "58",
+    desc: "Whisked spiced curd blended with crunchy diced onions and roasted cumin.",
+    tags: ["Cooling"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+  {
+    id: "rai-mix-veg",
+    categoryId: "salad_raita",
+    name: "Mix Veg Raita",
+    icon: "🥒",
+    rating: "4.7",
+    votes: "68",
+    desc: "Chilled yogurt mixed with cucumber, tomatoes, onions and herbs.",
+    tags: ["Cooling"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "rai-bundi",
+    categoryId: "salad_raita",
+    name: "Bundi Raita",
+    icon: "🥣",
+    rating: "4.8",
+    votes: "85",
+    desc: "Classic crisp gram flour boondi soaked in seasoned cumin yogurt.",
+    tags: ["Popular"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+
+  // ==========================================
+  // 13. INDIAN VEG (PANEER & VEGETABLES)
+  // ==========================================
+  {
+    id: "vg-paneer-lajwab",
+    categoryId: "indianveg",
+    name: "Paneer Lajwab",
+    icon: "🧀",
+    rating: "4.9",
+    votes: "120",
+    desc: "Chef's signature paneer delicacy cooked in rich creamy spiced gravy.",
+    tags: ["Chef Special", "Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "vg-paneer-do-pyaza",
+    categoryId: "indianveg",
+    name: "Paneer Do Pyaza",
+    icon: "🧅",
+    rating: "4.8",
+    votes: "135",
+    desc: "Cottage cheese simmered with double the onions in savory masala sauce.",
+    tags: ["Paneer", "Popular"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 130 },
+      { key: "full", label: "Full Portion", price: 210 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-paneer-butter-masala",
+    categoryId: "indianveg",
+    name: "Paneer Butter Masala",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "210",
+    desc: "Soft paneer cubes in velvety smooth butter tomato makhani sauce.",
+    tags: ["Paneer", "Bestseller"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 130 },
+      { key: "full", label: "Full Portion", price: 220 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-paneer-kadhai",
+    categoryId: "indianveg",
+    name: "Paneer Kadhai",
+    icon: "🍲",
+    rating: "4.8",
+    votes: "145",
+    desc: "Paneer cooked with bell peppers, onions and aromatic roasted kadhai spices.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 130 },
+      { key: "full", label: "Full Portion", price: 210 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-paneer-handi",
+    categoryId: "indianveg",
+    name: "Paneer Handi",
+    icon: "🏺",
+    rating: "4.8",
+    votes: "125",
+    desc: "Clay handi style slow-simmered rich aromatic paneer curry.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 140 },
+      { key: "full", label: "Full Portion", price: 230 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-paneer-lapeta",
+    categoryId: "indianveg",
+    name: "Paneer Lapeta",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "95",
+    desc: "Paneer wrapped in thick spicy coat of roasted masala and fresh herbs.",
+    tags: ["Paneer", "Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 320
+  },
+  {
+    id: "vg-paneer-kassa",
+    categoryId: "indianveg",
+    name: "Paneer Kassa",
+    icon: "🍛",
+    rating: "4.7",
+    votes: "88",
+    desc: "Thick roasted dark brown spiced gravy enveloping tender paneer cubes.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 290
+  },
+  {
+    id: "vg-paneer-kaleji",
+    categoryId: "indianveg",
+    name: "Paneer Kaleji",
+    icon: "🍳",
+    rating: "4.7",
+    votes: "75",
+    desc: "Vegetarian delicacy prepared with special textured paneer in hearty rustic masala.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 320
+  },
+  {
+    id: "vg-shahi-paneer",
+    categoryId: "indianveg",
+    name: "Shahi Paneer",
+    icon: "👑",
+    rating: "4.9",
+    votes: "165",
+    desc: "Royal Mughlai paneer in rich cashew, cream, cardamom and saffron sauce.",
+    tags: ["Royal", "Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 290
+  },
+  {
+    id: "vg-kaju-paneer",
+    categoryId: "indianveg",
+    name: "Kaju Paneer",
+    icon: "🥜",
+    rating: "4.9",
+    votes: "140",
+    desc: "Roasted cashews and tender cottage cheese in decadent rich gravy.",
+    tags: ["Royal", "Rich"],
+    isVeg: true,
+    hasSizes: false,
+    price: 300
+  },
+  {
+    id: "vg-paneer-masala",
+    categoryId: "indianveg",
+    name: "Paneer Masala",
+    icon: "🌶️",
+    rating: "4.7",
+    votes: "110",
+    desc: "Classic North Indian homestyle spiced paneer curry.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 200 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-palak-paneer",
+    categoryId: "indianveg",
+    name: "Palak Paneer",
+    icon: "🥬",
+    rating: "4.8",
+    votes: "130",
+    desc: "Fresh vibrant spinach puree cooked with garlic, spices and paneer.",
+    tags: ["Paneer", "Healthy"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 100 },
+      { key: "full", label: "Full Portion", price: 160 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-aloo-palak",
+    categoryId: "indianveg",
+    name: "Aloo Palak",
+    icon: "🥔",
+    rating: "4.5",
+    votes: "65",
+    desc: "Tender potatoes simmered in seasoned fresh spinach curry.",
+    tags: ["Healthy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 160
+  },
+  {
+    id: "vg-matar-paneer",
+    categoryId: "indianveg",
+    name: "Matar Paneer",
+    icon: "🫛",
+    rating: "4.8",
+    votes: "140",
+    desc: "Sweet green peas and soft paneer in homestyle onion-tomato curry.",
+    tags: ["Classic"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 110 },
+      { key: "full", label: "Full Portion", price: 190 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-paneer-dilruba",
+    categoryId: "indianveg",
+    name: "Paneer Dilruba",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "85",
+    desc: "Stuffed paneer delicacy simmered in fragrant exotic spiced gravy.",
+    tags: ["Special"],
+    isVeg: true,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "vg-aloo-paneer",
+    categoryId: "indianveg",
+    name: "Aloo Paneer",
+    icon: "🥔",
+    rating: "4.6",
+    votes: "80",
+    desc: "Potatoes and cottage cheese in comforting spiced curry.",
+    tags: ["Comfort"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 180 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-tawa-paneer",
+    categoryId: "indianveg",
+    name: "Tawa Paneer",
+    icon: "🍳",
+    rating: "4.8",
+    votes: "95",
+    desc: "Sizzling tawa-tossed spiced paneer with bell peppers and green chillies.",
+    tags: ["Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 310
+  },
+  {
+    id: "vg-paneer-punjabi",
+    categoryId: "indianveg",
+    name: "Paneer Punjabi",
+    icon: "🌾",
+    rating: "4.8",
+    votes: "105",
+    desc: "Rich spicy Punjabi dhaba style paneer preparation.",
+    tags: ["Dhaba Style"],
+    isVeg: true,
+    hasSizes: false,
+    price: 300
+  },
+  {
+    id: "vg-paneer-mushroom-masala",
+    categoryId: "indianveg",
+    name: "Paneer Mushroom Masala",
+    icon: "🍄",
+    rating: "4.8",
+    votes: "115",
+    desc: "Fresh mushrooms and paneer cubes combined in aromatic masala gravy.",
+    tags: ["Popular"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 130 },
+      { key: "full", label: "Full Portion", price: 220 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-paneer-mushroom-butter",
+    categoryId: "indianveg",
+    name: "Paneer Mushroom Butter Masala",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "128",
+    desc: "Decadent butter masala sauce with both fresh button mushrooms and paneer.",
+    tags: ["Rich", "Bestseller"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 140 },
+      { key: "full", label: "Full Portion", price: 230 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-paneer-kolhapuri",
+    categoryId: "indianveg",
+    name: "Paneer Kolhapuri",
+    icon: "🌶️",
+    rating: "4.8",
+    votes: "95",
+    desc: "Fiery spicy Kolhapuri red chilli coconut masala gravy with paneer.",
+    tags: ["Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 240
+  },
+  {
+    id: "vg-paneer-lababdar",
+    categoryId: "indianveg",
+    name: "Paneer Lababdar",
+    icon: "🏺",
+    rating: "4.9",
+    votes: "135",
+    desc: "Mughlai style paneer in tomato onion gravy enriched with grated cheese and butter.",
+    tags: ["Royal"],
+    isVeg: true,
+    hasSizes: false,
+    price: 300
+  },
+  // Mushrooms
+  {
+    id: "vg-mushroom-do-pyaza",
+    categoryId: "indianveg",
+    name: "Mushroom Do Pyaza",
+    icon: "🧅",
+    rating: "4.7",
+    votes: "88",
+    desc: "Fresh button mushrooms tossed with cubed onions in thick spiced sauce.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 140 },
+      { key: "full", label: "Full Portion", price: 230 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-mushroom-butter-masala",
+    categoryId: "indianveg",
+    name: "Mushroom Butter Masala",
+    icon: "🧈",
+    rating: "4.8",
+    votes: "102",
+    desc: "Tender button mushrooms simmered in silky butter makhani gravy.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 140 },
+      { key: "full", label: "Full Portion", price: 230 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-mushroom-masala",
+    categoryId: "indianveg",
+    name: "Mushroom Masala",
+    icon: "🌶️",
+    rating: "4.7",
+    votes: "90",
+    desc: "Mushrooms cooked in rich onion, tomato and Indian spice blend.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 130 },
+      { key: "full", label: "Full Portion", price: 220 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-mushroom-handi",
+    categoryId: "indianveg",
+    name: "Mushroom Handi",
+    icon: "🏺",
+    rating: "4.8",
+    votes: "85",
+    desc: "Handi slow-cooked mushroom curry with fragrant whole spices.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 140 },
+      { key: "full", label: "Full Portion", price: 240 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-mushroom-kadhai",
+    categoryId: "indianveg",
+    name: "Mushroom Kadhai",
+    icon: "🍲",
+    rating: "4.7",
+    votes: "80",
+    desc: "Wok-cooked mushrooms with bell peppers and freshly ground kadhai masala.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 140 },
+      { key: "full", label: "Full Portion", price: 230 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-mushroom-sufiya",
+    categoryId: "indianveg",
+    name: "Mushroom Sufiya",
+    icon: "🌿",
+    rating: "4.8",
+    votes: "70",
+    desc: "Chef's aromatic fennel-infused subtle creamy mushroom curry.",
+    tags: ["Special"],
+    isVeg: true,
+    hasSizes: false,
+    price: 300
+  },
+  {
+    id: "vg-palak-mushroom",
+    categoryId: "indianveg",
+    name: "Palak Mushroom",
+    icon: "🥬",
+    rating: "4.7",
+    votes: "74",
+    desc: "Button mushrooms simmered in fresh green spinach puree.",
+    tags: ["Healthy"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 200 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-matar-mushroom",
+    categoryId: "indianveg",
+    name: "Matar Mushroom",
+    icon: "🫛",
+    rating: "4.7",
+    votes: "82",
+    desc: "Sweet green peas and sliced mushrooms in homestyle curry.",
+    tags: ["Classic"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 210 }
+    ],
+    defaultSize: "half"
+  },
+  // Veggies & Aloo
+  {
+    id: "vg-mixed-veg",
+    categoryId: "indianveg",
+    name: "Mixed Veg",
+    icon: "🥕",
+    rating: "4.6",
+    votes: "95",
+    desc: "Seasonal assorted garden vegetables cooked in mildly spiced curry.",
+    tags: ["Healthy"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 190 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-paneer-bhujiya",
+    categoryId: "indianveg",
+    name: "Paneer Bhujiya",
+    icon: "🍳",
+    rating: "4.8",
+    votes: "110",
+    desc: "Crumbled cottage cheese sautéed with onions, green chillies, tomatoes and herbs.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "vg-aloo-bhujiya",
+    categoryId: "indianveg",
+    name: "Aloo Bhujiya",
+    icon: "🥔",
+    rating: "4.7",
+    votes: "90",
+    desc: "Homestyle thin-cut crispy Bihari aloo bhujiya fried in mustard oil.",
+    tags: ["Desi Special"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "vg-aloo-dum",
+    categoryId: "indianveg",
+    name: "Aloo Dum",
+    icon: "🥔",
+    rating: "4.8",
+    votes: "125",
+    desc: "Slow-cooked baby potatoes in rich spiced tomato-onion dum gravy.",
+    tags: ["Popular"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 100 },
+      { key: "full", label: "Full Portion", price: 160 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-aloo-jira",
+    categoryId: "indianveg",
+    name: "Aloo Jira",
+    icon: "🥔",
+    rating: "4.6",
+    votes: "78",
+    desc: "Diced boiled potatoes tossed with roasted cumin seeds and green chillies.",
+    tags: ["Quick Bite"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "vg-chana-chhola",
+    categoryId: "indianveg",
+    name: "Chana Chhola",
+    icon: "🫘",
+    rating: "4.8",
+    votes: "115",
+    desc: "Authentic spiced chickpea masala curry cooked in traditional spices.",
+    tags: ["Desi"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 100 },
+      { key: "full", label: "Full Portion", price: 160 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "vg-aloo-gobhi",
+    categoryId: "indianveg",
+    name: "Aloo Gobhi",
+    icon: "🥦",
+    rating: "4.6",
+    votes: "88",
+    desc: "Classic cauliflower and potato stir-fry in savory spiced masala.",
+    tags: ["Comfort"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 110 },
+      { key: "full", label: "Full Portion", price: 160 }
+    ],
+    defaultSize: "half"
+  },
+
+  // ==========================================
+  // 14. BIRYANI SPECIAL
+  // ==========================================
+  {
+    id: "bir-veg",
+    categoryId: "biryani",
+    name: "Veg Biryani",
+    icon: "🟢",
+    rating: "4.7",
+    votes: "110",
+    desc: "Aromatic basmati rice layered with fresh spiced garden vegetables and saffron.",
+    tags: ["Veg"],
+    isVeg: true,
+    hasSizes: false,
+    price: 160
+  },
+  {
+    id: "bir-paneer",
+    categoryId: "biryani",
+    name: "Paneer Biryani",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "135",
+    desc: "Fragrant dum biryani loaded with marinated cottage cheese cubes.",
+    tags: ["Paneer", "Popular"],
+    isVeg: true,
+    hasSizes: false,
+    price: 170
+  },
+  {
+    id: "bir-chicken",
+    categoryId: "biryani",
+    name: "Chicken Biryani",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "260",
+    desc: "Authentic dum cooked chicken biryani with tender meat pieces and aromatic spices.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: false,
+    price: 210
+  },
+  {
+    id: "bir-anda",
+    categoryId: "biryani",
+    name: "Anda Biryani",
+    icon: "🥚",
+    rating: "4.7",
+    votes: "115",
+    desc: "Spiced basmati rice cooked with fried boiled eggs and caramelized onions.",
+    tags: ["Egg"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: false,
+    price: 160
+  },
+  {
+    id: "bir-mushroom",
+    categoryId: "biryani",
+    name: "Mushroom Biryani",
+    icon: "🍄",
+    rating: "4.7",
+    votes: "90",
+    desc: "Juicy mushrooms layered in fragrant saffron dum rice.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: false,
+    price: 190
+  },
+  {
+    id: "bir-chicken-hyderabadi",
+    categoryId: "biryani",
+    name: "Chicken Hyderabadi Biryani",
+    icon: "🌶️",
+    rating: "4.9",
+    votes: "220",
+    desc: "Spicy Hyderabadi kachhi dum biryani with marinated chicken, mint and saffron.",
+    tags: ["Non-Veg", "Spicy", "Bestseller"],
+    isVeg: false,
+    hasSizes: false,
+    price: 230
+  },
+  {
+    id: "bir-mutton",
+    categoryId: "biryani",
+    name: "Mutton Biryani",
+    icon: "🍖",
+    rating: "4.9",
+    votes: "205",
+    desc: "Slow dum cooked tender mutton pieces layered with extra long basmati rice.",
+    tags: ["Mutton", "Royal"],
+    isVeg: false,
+    hasSizes: false,
+    price: 240
+  },
+  {
+    id: "bir-nirvana-spl-chicken",
+    categoryId: "biryani",
+    name: "Nirvana Special Chicken Biryani",
+    icon: "👑",
+    rating: "5.0",
+    votes: "185",
+    desc: "Chef's grand royal chicken biryani served with extra meat, boiled egg and rich spices.",
+    tags: ["Non-Veg", "Chef Special"],
+    isVeg: false,
+    hasSizes: false,
+    price: 250
+  },
+  {
+    id: "bir-nirvana-spl-veg",
+    categoryId: "biryani",
+    name: "Nirvana Special Veg Biryani",
+    icon: "👑",
+    rating: "4.9",
+    votes: "120",
+    desc: "Grand royal vegetable & paneer dum biryani with roasted nuts and saffron.",
+    tags: ["Royal Veg"],
+    isVeg: true,
+    hasSizes: false,
+    price: 210
+  },
+
+  // ==========================================
+  // 15. KOPTA & SOUPS
+  // ==========================================
+  {
+    id: "kp-veg",
+    categoryId: "kopta_soup",
+    name: "Veg Kopta",
+    icon: "🟢",
+    rating: "4.6",
+    votes: "75",
+    desc: "Crispy vegetable kofta dumplings in rich spicy onion-tomato gravy.",
+    tags: ["Veg"],
+    isVeg: true,
+    hasSizes: false,
+    price: 220
+  },
+  {
+    id: "kp-paneer",
+    categoryId: "kopta_soup",
+    name: "Paneer Kopta",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "95",
+    desc: "Melt-in-mouth cottage cheese kofta balls in smooth flavorful gravy.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 230
+  },
+  {
+    id: "kp-malai",
+    categoryId: "kopta_soup",
+    name: "Malai Kopta",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "140",
+    desc: "Decadent paneer & khoya koftas in rich creamy cashew makhani sauce.",
+    tags: ["Royal", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 260
+  },
+  {
+    id: "kp-kaju",
+    categoryId: "kopta_soup",
+    name: "Kaju Kopta",
+    icon: "🥜",
+    rating: "4.9",
+    votes: "90",
+    desc: "Exquisite cashew-stuffed koftas simmered in royal white gravy.",
+    tags: ["Royal"],
+    isVeg: true,
+    hasSizes: false,
+    price: 280
+  },
+  // Soups
+  {
+    id: "sp-veg",
+    categoryId: "kopta_soup",
+    name: "Veg Soup",
+    icon: "🥦",
+    rating: "4.5",
+    votes: "50",
+    desc: "Comforting clear vegetable broth with finely minced garden vegetables.",
+    tags: ["Healthy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "sp-hot-sour-veg",
+    categoryId: "kopta_soup",
+    name: "Hot and Sour Soup",
+    icon: "🌶️",
+    rating: "4.7",
+    votes: "78",
+    desc: "Spicy and tangy Chinese broth loaded with mushrooms, bamboo and vegetables.",
+    tags: ["Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 110
+  },
+  {
+    id: "sp-veg-manchow",
+    categoryId: "kopta_soup",
+    name: "Veg Manchow Soup",
+    icon: "🍜",
+    rating: "4.8",
+    votes: "95",
+    desc: "Classic dark garlic soy vegetable soup topped with crispy fried noodles.",
+    tags: ["Popular"],
+    isVeg: true,
+    hasSizes: false,
+    price: 110
+  },
+  {
+    id: "sp-tomato",
+    categoryId: "kopta_soup",
+    name: "Tomato Soup",
+    icon: "🍅",
+    rating: "4.7",
+    votes: "88",
+    desc: "Silky ripe tomato soup served with crunchy butter-toasted croutons.",
+    tags: ["Classic"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "sp-veg-sweet-corn",
+    categoryId: "kopta_soup",
+    name: "Veg Sweet Corn Soup",
+    icon: "🌽",
+    rating: "4.7",
+    votes: "80",
+    desc: "Sweet creamed corn kernels in light comforting vegetable broth.",
+    tags: ["Mild"],
+    isVeg: true,
+    hasSizes: false,
+    price: 110
+  },
+  {
+    id: "sp-chicken",
+    categoryId: "kopta_soup",
+    name: "Chicken Soup",
+    icon: "🍗",
+    rating: "4.7",
+    votes: "85",
+    desc: "Wholesome clear chicken broth with tender shredded chicken pieces.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "sp-chk-hot-sour",
+    categoryId: "kopta_soup",
+    name: "Chicken Hot and Sour Soup",
+    icon: "🌶️",
+    rating: "4.8",
+    votes: "98",
+    desc: "Spicy & sour chicken soup with eggs, vinegar and dark soy.",
+    tags: ["Non-Veg", "Spicy"],
+    isVeg: false,
+    hasSizes: false,
+    price: 110
+  },
+  {
+    id: "sp-chk-manchow",
+    categoryId: "kopta_soup",
+    name: "Chicken Manchow Soup",
+    icon: "🍜",
+    rating: "4.9",
+    votes: "120",
+    desc: "Hearty chicken and garlic soup served with crispy fried noodles.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "sp-chk-clear",
+    categoryId: "kopta_soup",
+    name: "Chicken Clear Soup",
+    icon: "🥣",
+    rating: "4.6",
+    votes: "60",
+    desc: "Light, healthy and clear chicken essence with tender meat pieces.",
+    tags: ["Non-Veg", "Healthy"],
+    isVeg: false,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "sp-chk-sweet-corn",
+    categoryId: "kopta_soup",
+    name: "Chicken Sweet Corn Soup",
+    icon: "🌽",
+    rating: "4.8",
+    votes: "92",
+    desc: "Creamy sweet golden corn soup with shredded tender chicken and egg drops.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 120
+  },
+
+  // ==========================================
+  // 16. ROTI & NAAN
+  // ==========================================
+  {
+    id: "rt-plain-roti",
+    categoryId: "roti",
+    name: "Plain Roti",
+    icon: "🫓",
+    rating: "4.6",
+    votes: "110",
+    desc: "Freshly baked whole wheat tandoori roti.",
+    tags: ["Tandoori"],
+    isVeg: true,
+    hasSizes: false,
+    price: 11
+  },
+  {
+    id: "rt-butter-roti",
+    categoryId: "roti",
+    name: "Butter Roti",
+    icon: "🧈",
+    rating: "4.8",
+    votes: "150",
+    desc: "Tandoori wheat roti glazed with rich butter.",
+    tags: ["Butter"],
+    isVeg: true,
+    hasSizes: false,
+    price: 15
+  },
+  {
+    id: "rt-plain-naan",
+    categoryId: "roti",
+    name: "Plain Naan",
+    icon: "🫓",
+    rating: "4.6",
+    votes: "95",
+    desc: "Soft and fluffy traditional tandoori naan.",
+    tags: ["Naan"],
+    isVeg: true,
+    hasSizes: false,
+    price: 35
+  },
+  {
+    id: "rt-butter-naan",
+    categoryId: "roti",
+    name: "Butter Naan",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "240",
+    desc: "Layered fluffy tandoori naan lavishly brushed with butter.",
+    tags: ["Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 40
+  },
+  {
+    id: "rt-garlic-naan",
+    categoryId: "roti",
+    name: "Garlic Naan",
+    icon: "🧄",
+    rating: "4.9",
+    votes: "180",
+    desc: "Tandoori naan topped with roasted chopped garlic and fresh coriander.",
+    tags: ["Garlic", "Popular"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+  {
+    id: "rt-stuffed-naan",
+    categoryId: "roti",
+    name: "Stuffed Naan",
+    icon: "🫓",
+    rating: "4.7",
+    votes: "88",
+    desc: "Naan stuffed with seasoned mashed potatoes and spices.",
+    tags: ["Stuffed"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "rt-paneer-stuffed-naan",
+    categoryId: "roti",
+    name: "Paneer Stuffed Naan",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "115",
+    desc: "Naan packed with spiced grated cottage cheese filling.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "rt-stuffed-kulcha",
+    categoryId: "roti",
+    name: "Stuffed Kulcha",
+    icon: "🫓",
+    rating: "4.7",
+    votes: "75",
+    desc: "Traditional Amritsari style stuffed crispy kulcha.",
+    tags: ["Kulcha"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "rt-paneer-stuffed-kulcha",
+    categoryId: "roti",
+    name: "Paneer Stuffed Kulcha",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "90",
+    desc: "Spiced paneer stuffed crispy golden kulcha.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "rt-onion-kulcha",
+    categoryId: "roti",
+    name: "Onion Kulcha",
+    icon: "🧅",
+    rating: "4.7",
+    votes: "82",
+    desc: "Crispy tandoori kulcha stuffed with spiced onions and herbs.",
+    tags: ["Kulcha"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+  {
+    id: "rt-masala-kulcha",
+    categoryId: "roti",
+    name: "Masala Kulcha",
+    icon: "🫓",
+    rating: "4.8",
+    votes: "85",
+    desc: "Spicy mixed vegetable and herb filled tandoori kulcha.",
+    tags: ["Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "rt-kashmiri-naan",
+    categoryId: "roti",
+    name: "Kashmiri Naan",
+    icon: "🫓",
+    rating: "4.8",
+    votes: "70",
+    desc: "Sweet and nutty naan stuffed with dry fruits and cherries.",
+    tags: ["Royal"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "rt-shahi-naan",
+    categoryId: "roti",
+    name: "Shahi Naan",
+    icon: "👑",
+    rating: "4.8",
+    votes: "78",
+    desc: "Royal tandoori naan loaded with dry fruits, paneer and butter.",
+    tags: ["Royal"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "rt-chicken-stuffed-paratha",
+    categoryId: "roti",
+    name: "Chicken Stuffed Paratha",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "135",
+    desc: "Crispy tawa/tandoori paratha stuffed with spicy minced chicken.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "rt-missi-roti",
+    categoryId: "roti",
+    name: "Missi Roti",
+    icon: "🫓",
+    rating: "4.6",
+    votes: "65",
+    desc: "Spiced gram flour (besan) and wheat flatbread with onions and ajwain.",
+    tags: ["Desi"],
+    isVeg: true,
+    hasSizes: false,
+    price: 50
+  },
+  {
+    id: "rt-khasta-roti",
+    categoryId: "roti",
+    name: "Khasta Roti",
+    icon: "🫓",
+    rating: "4.5",
+    votes: "50",
+    desc: "Extra crispy, flaky layered tandoori roti.",
+    tags: ["Crisp"],
+    isVeg: true,
+    hasSizes: false,
+    price: 30
+  },
+  {
+    id: "rt-mughlai-paratha",
+    categoryId: "roti",
+    name: "Mughlai Paratha",
+    icon: "🍳",
+    rating: "4.8",
+    votes: "105",
+    desc: "Deep fried crisp paratha stuffed with spiced egg and minced filling.",
+    tags: ["Royal"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: false,
+    price: 150
+  },
+  {
+    id: "rt-aloo-paratha",
+    categoryId: "roti",
+    name: "Aloo Paratha",
+    icon: "🥔",
+    rating: "4.8",
+    votes: "130",
+    desc: "Golden butter toasted homestyle spiced potato stuffed paratha.",
+    tags: ["Comfort"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+  {
+    id: "rt-paneer-paratha",
+    categoryId: "roti",
+    name: "Paneer Paratha",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "125",
+    desc: "Flaky paratha stuffed with seasoned cottage cheese.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "rt-onion-paratha",
+    categoryId: "roti",
+    name: "Onion Paratha",
+    icon: "🧅",
+    rating: "4.6",
+    votes: "72",
+    desc: "Stuffed paratha with spiced crunchy onions and green chillies.",
+    tags: ["Classic"],
+    isVeg: true,
+    hasSizes: false,
+    price: 50
+  },
+  {
+    id: "rt-lachha-paratha",
+    categoryId: "roti",
+    name: "Lachha Paratha",
+    icon: "🫓",
+    rating: "4.8",
+    votes: "140",
+    desc: "Multi-layered flaky crispy tandoori wheat paratha.",
+    tags: ["Flaky"],
+    isVeg: true,
+    hasSizes: false,
+    price: 50
+  },
+  {
+    id: "rt-nirvana-spl-naan",
+    categoryId: "roti",
+    name: "Nirvana Special Naan",
+    icon: "👑",
+    rating: "4.9",
+    votes: "95",
+    desc: "Signature chef naan loaded with double cheese, paneer, garlic and butter glaze.",
+    tags: ["Chef Special"],
+    isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+
+  // ==========================================
+  // 17. KEBAB & TANDOORI
+  // ==========================================
+  {
+    id: "kb-chk-seekh",
+    categoryId: "kebab",
+    name: "Chicken Seekh Kebab",
+    icon: "🍢",
+    rating: "4.9",
+    votes: "155",
+    desc: "Minced spiced chicken skewers char-grilled on tandoori charcoal.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: false,
+    price: 250
+  },
+  {
+    id: "kb-chk-tandoori",
+    categoryId: "kebab",
+    name: "Chicken Tandoori",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "230",
+    desc: "Whole bone-in chicken marinated in yogurt and red spices, roasted in clay oven.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Tandoori", price: 250 },
+      { key: "full", label: "Full Tandoori", price: 440 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "kb-leg-kebab",
+    categoryId: "kebab",
+    name: "Leg Kebab",
+    icon: "🍗",
+    rating: "4.8",
+    votes: "120",
+    desc: "Succulent chicken leg pieces marinated in tandoori spices and roasted.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "kb-chk-tikka",
+    categoryId: "kebab",
+    name: "Chicken Tikka",
+    icon: "🍢",
+    rating: "4.8",
+    votes: "160",
+    desc: "Boneless chicken chunks marinated in spiced yogurt and grilled to perfection.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 260
+  },
+  {
+    id: "kb-chk-boti",
+    categoryId: "kebab",
+    name: "Chicken Boti Kebab",
+    icon: "🍢",
+    rating: "4.8",
+    votes: "105",
+    desc: "Tender bite-sized boneless chicken cubes seared in tandoori marinade.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "kb-chk-lehsuni",
+    categoryId: "kebab",
+    name: "Chicken Lehsuni Kebab",
+    icon: "🧄",
+    rating: "4.9",
+    votes: "118",
+    desc: "Garlic-infused succulent chicken kebabs roasted over coals.",
+    tags: ["Non-Veg", "Garlic"],
+    isVeg: false,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "kb-chk-malai-tikka",
+    categoryId: "kebab",
+    name: "Chicken Malai Tikka",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "175",
+    desc: "Melt-in-mouth chicken chunks marinated in cream, cheese, cardamom and cashew paste.",
+    tags: ["Non-Veg", "Creamy", "Bestseller"],
+    isVeg: false,
+    hasSizes: false,
+    price: 340
+  },
+  {
+    id: "kb-chk-kali-mirch",
+    categoryId: "kebab",
+    name: "Chicken Kali Mirch",
+    icon: "🫑",
+    rating: "4.8",
+    votes: "95",
+    desc: "Crushed black pepper and cream coated tender roasted chicken kebabs.",
+    tags: ["Non-Veg", "Peppery"],
+    isVeg: false,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "kb-chk-reshmi",
+    categoryId: "kebab",
+    name: "Chicken Reshmi Kebab",
+    icon: "🍢",
+    rating: "4.8",
+    votes: "110",
+    desc: "Silky soft minced chicken kebabs blended with cream and eggs.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "kb-chk-afghani",
+    categoryId: "kebab",
+    name: "Chicken Afghani (2PC)",
+    icon: "🌾",
+    rating: "4.8",
+    votes: "90",
+    desc: "2 pieces of rich cashew and cream marinated roasted Afghani chicken.",
+    tags: ["Non-Veg", "2 Pieces"],
+    isVeg: false,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "kb-mut-seekh",
+    categoryId: "kebab",
+    name: "Mutton Seekh Kebab",
+    icon: "🍢",
+    rating: "4.9",
+    votes: "135",
+    desc: "Spiced minced mutton skewered and roasted to juicy perfection.",
+    tags: ["Mutton", "Royal"],
+    isVeg: false,
+    hasSizes: false,
+    price: 280
+  },
+  // Veg Kebabs
+  {
+    id: "kb-paneer-lehsuni",
+    categoryId: "kebab",
+    name: "Paneer Lehsuni Kebab",
+    icon: "🧄",
+    rating: "4.8",
+    votes: "95",
+    desc: "Paneer cubes infused with rich garlic marinade and tandoor roasted.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 260
+  },
+  {
+    id: "kb-paneer-tikka",
+    categoryId: "kebab",
+    name: "Paneer Tikka",
+    icon: "🍢",
+    rating: "4.9",
+    votes: "185",
+    desc: "Classic tandoor-roasted cottage cheese with bell peppers and onions.",
+    tags: ["Paneer", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 240
+  },
+  {
+    id: "kb-paneer-boti",
+    categoryId: "kebab",
+    name: "Paneer Boti Kebab",
+    icon: "🍢",
+    rating: "4.7",
+    votes: "80",
+    desc: "Spicy seasoned bite-sized grilled paneer skewers.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 260
+  },
+  {
+    id: "kb-paneer-seekh",
+    categoryId: "kebab",
+    name: "Paneer Seekh Kebab",
+    icon: "🍢",
+    rating: "4.8",
+    votes: "92",
+    desc: "Minced paneer and vegetable seekh skewers roasted on charcoal.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 240
+  },
+  {
+    id: "kb-paneer-reshmi",
+    categoryId: "kebab",
+    name: "Paneer Reshmi Kebab",
+    icon: "🍢",
+    rating: "4.8",
+    votes: "88",
+    desc: "Creamy cashew and cheese marinated melt-in-mouth paneer kebabs.",
+    tags: ["Paneer", "Creamy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 270
+  },
+  {
+    id: "kb-paneer-angara",
+    categoryId: "kebab",
+    name: "Paneer Angara Kebab",
+    icon: "🌶️",
+    rating: "4.8",
+    votes: "96",
+    desc: "Smoky fiery red chilli marinated spicy paneer tikka.",
+    tags: ["Paneer", "Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 260
+  },
+  {
+    id: "kb-paneer-malai-tikka",
+    categoryId: "kebab",
+    name: "Paneer Malai Tikka",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "160",
+    desc: "Rich cream and cheese marinated paneer chunks roasted gentle golden.",
+    tags: ["Paneer", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 280
+  },
+  {
+    id: "kb-hara-bhara",
+    categoryId: "kebab",
+    name: "Hara Bhara Kebab",
+    icon: "🟢",
+    rating: "4.7",
+    votes: "105",
+    desc: "Pan-fried patties made of spinach, green peas, potatoes and aromatic herbs.",
+    tags: ["Healthy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 240
+  },
+
+  // ==========================================
+  // 18. DAL & RICE
+  // ==========================================
+  {
+    id: "dl-fry",
+    categoryId: "dal_rice",
+    name: "Dal Fry",
+    icon: "🍲",
+    rating: "4.7",
+    votes: "125",
+    desc: "Yellow lentils tempered with ghee, onions, garlic and tomatoes.",
+    tags: ["Classic"],
+    isVeg: true,
+    hasSizes: false,
+    price: 90
+  },
+  {
+    id: "dl-plain",
+    categoryId: "dal_rice",
+    name: "Plain Dal",
+    icon: "🥣",
+    rating: "4.5",
+    votes: "60",
+    desc: "Simple, light and comforting homestyle yellow dal.",
+    tags: ["Simple"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "dl-tadka",
+    categoryId: "dal_rice",
+    name: "Dal Tadka",
+    icon: "🌶️",
+    rating: "4.8",
+    votes: "160",
+    desc: "Smoky dhaba-style yellow dal tempered with desi ghee, cumin and dry red chillies.",
+    tags: ["Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "dl-makhni",
+    categoryId: "dal_rice",
+    name: "Dal Makhni",
+    icon: "🧈",
+    rating: "4.9",
+    votes: "185",
+    desc: "Slow-cooked black lentils and kidney beans in rich creamy butter gravy.",
+    tags: ["Royal", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+  {
+    id: "dl-mughlai",
+    categoryId: "dal_rice",
+    name: "Dal Mughlai",
+    icon: "👑",
+    rating: "4.8",
+    votes: "88",
+    desc: "Royal lentil curry enriched with cream, dry fruits and subtle spices.",
+    tags: ["Royal"],
+    isVeg: true,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "dl-maharani",
+    categoryId: "dal_rice",
+    name: "Dal Maharani",
+    icon: "👑",
+    rating: "4.8",
+    votes: "80",
+    desc: "A combination of 5 rich lentils cooked with royal spices and cream.",
+    tags: ["Special"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "dl-jeera",
+    categoryId: "dal_rice",
+    name: "Jeera Dal",
+    icon: "🌾",
+    rating: "4.6",
+    votes: "65",
+    desc: "Homestyle yellow dal tempered purely with aromatic cumin seeds.",
+    tags: ["Comfort"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "dl-butter-fry",
+    categoryId: "dal_rice",
+    name: "Dal Butter Fry",
+    icon: "🧈",
+    rating: "4.8",
+    votes: "95",
+    desc: "Yellow dal fried generously with rich golden butter and spices.",
+    tags: ["Butter"],
+    isVeg: true,
+    hasSizes: false,
+    price: 90
+  },
+  // Rice & Pulav
+  {
+    id: "rc-jeera",
+    categoryId: "dal_rice",
+    name: "Jeera Rice",
+    icon: "🌾",
+    rating: "4.7",
+    votes: "135",
+    desc: "Basmati rice tempered with roasted cumin seeds and desi ghee.",
+    tags: ["Popular"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "rc-plain",
+    categoryId: "dal_rice",
+    name: "Plain Rice",
+    icon: "🍚",
+    rating: "4.5",
+    votes: "80",
+    desc: "Steamed fluffy long-grain basmati rice.",
+    tags: ["Simple"],
+    isVeg: true,
+    hasSizes: false,
+    price: 90
+  },
+  {
+    id: "rc-veg-pulav",
+    categoryId: "dal_rice",
+    name: "Veg Pulav",
+    icon: "🥕",
+    rating: "4.7",
+    votes: "95",
+    desc: "Fragrant basmati rice cooked with fresh mixed vegetables and whole spices.",
+    tags: ["Pulav"],
+    isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+  {
+    id: "rc-paneer-pulav",
+    categoryId: "dal_rice",
+    name: "Paneer Pulav",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "110",
+    desc: "Fluffy basmati rice tossed with spiced golden paneer cubes and herbs.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "rc-kashmiri-pulav",
+    categoryId: "dal_rice",
+    name: "Kashmiri Pulav",
+    icon: "🍒",
+    rating: "4.8",
+    votes: "90",
+    desc: "Aromatic sweet and savory saffron rice tossed with fruits and dry fruits.",
+    tags: ["Royal"],
+    isVeg: true,
+    hasSizes: false,
+    price: 160
+  },
+  {
+    id: "rc-shahi-pulav",
+    categoryId: "dal_rice",
+    name: "Shahi Pulav",
+    icon: "👑",
+    rating: "4.8",
+    votes: "85",
+    desc: "Royal basmati rice cooked with paneer, cashews, raisins and saffron.",
+    tags: ["Royal"],
+    isVeg: true,
+    hasSizes: false,
+    price: 150
+  },
+  {
+    id: "rc-nirvana-spl-pulav",
+    categoryId: "dal_rice",
+    name: "Nirvana Special Pulav",
+    icon: "👑",
+    rating: "4.9",
+    votes: "105",
+    desc: "Chef's signature grand feast pulav with loaded dry fruits and paneer.",
+    tags: ["Chef Special"],
+    isVeg: true,
+    hasSizes: false,
+    price: 200
+  },
+  {
+    id: "rc-matar-pulav",
+    categoryId: "dal_rice",
+    name: "Matar Pulav",
+    icon: "🫛",
+    rating: "4.7",
+    votes: "92",
+    desc: "Sweet green peas cooked into fragrant long-grain basmati rice.",
+    tags: ["Classic"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "rc-sonachur-plain",
+    categoryId: "dal_rice",
+    name: "Sonachur Plain Rice",
+    icon: "🌾",
+    rating: "4.6",
+    votes: "65",
+    desc: "Aromatic traditional fine-grain Sonachur steamed rice.",
+    tags: ["Desi"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "rc-sonachur-jeera",
+    categoryId: "dal_rice",
+    name: "Sonachur Jeera Rice",
+    icon: "🌾",
+    rating: "4.7",
+    votes: "75",
+    desc: "Sonachur fine aromatic rice tempered with cumin and pure ghee.",
+    tags: ["Desi"],
+    isVeg: true,
+    hasSizes: false,
+    price: 90
+  },
+
+  // ==========================================
+  // 19. CHINESE & NOODLES
+  // ==========================================
+  {
+    id: "ch-mushroom-chowmein",
+    categoryId: "chinese",
+    name: "Mushroom Chowmein",
+    icon: "🍄",
+    rating: "4.7",
+    votes: "90",
+    desc: "Stir-fried noodles with fresh button mushrooms, cabbage and soy sauce.",
+    tags: ["Noodles"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 100 },
+      { key: "full", label: "Full Portion", price: 160 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-veg-chowmein",
+    categoryId: "chinese",
+    name: "Veg Chowmein",
+    icon: "🥦",
+    rating: "4.6",
+    votes: "135",
+    desc: "Classic wok tossed noodles with crunchy shredded vegetables.",
+    tags: ["Noodles", "Popular"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 60 },
+      { key: "full", label: "Full Portion", price: 100 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-paneer-chowmein",
+    categoryId: "chinese",
+    name: "Paneer Chowmein",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "120",
+    desc: "Noodles tossed with fried paneer cubes, veggies and spicy Indo-Chinese seasoning.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 80 },
+      { key: "full", label: "Full Portion", price: 120 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-egg-chowmein",
+    categoryId: "chinese",
+    name: "Egg Chowmein",
+    icon: "🥚",
+    rating: "4.8",
+    votes: "145",
+    desc: "Wok-tossed noodles with scrambled eggs, scallions and soy glaze.",
+    tags: ["Egg"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 90 },
+      { key: "full", label: "Full Portion", price: 130 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-chicken-chowmein",
+    categoryId: "chinese",
+    name: "Chicken Chowmein",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "185",
+    desc: "Tender shredded chicken wok tossed with egg noodles and crisp vegetables.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 160 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-veg-mixed-chowmein",
+    categoryId: "chinese",
+    name: "Veg Mixed Chowmein",
+    icon: "🥕",
+    rating: "4.7",
+    votes: "95",
+    desc: "Assorted vegetables, paneer and mushrooms tossed with noodles.",
+    tags: ["Noodles"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 100 },
+      { key: "full", label: "Full Portion", price: 160 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-schezwan-chowmein",
+    categoryId: "chinese",
+    name: "Schezwan Chowmein",
+    icon: "🌶️",
+    rating: "4.8",
+    votes: "115",
+    desc: "Fiery noodles wok-tossed in homemade spicy schezwan pepper sauce.",
+    tags: ["Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+  {
+    id: "ch-veg-fried-rice",
+    categoryId: "chinese",
+    name: "Veg Fried Rice",
+    icon: "🥦",
+    rating: "4.7",
+    votes: "125",
+    desc: "Aromatic basmati rice stir-fried with diced carrots, beans and spring onions.",
+    tags: ["Fried Rice"],
+    isVeg: true,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "ch-paneer-fried-rice",
+    categoryId: "chinese",
+    name: "Paneer Fried Rice",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "110",
+    desc: "Fried rice loaded with golden paneer cubes and Chinese greens.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+  {
+    id: "ch-chicken-fried-rice",
+    categoryId: "chinese",
+    name: "Chicken Fried Rice",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "170",
+    desc: "Wok-fried rice tossed with juicy chicken bits, egg and light soy.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: false,
+    price: 160
+  },
+  {
+    id: "ch-egg-fried-rice",
+    categoryId: "chinese",
+    name: "Egg Fried Rice",
+    icon: "🥚",
+    rating: "4.8",
+    votes: "130",
+    desc: "Stir-fried basmati rice with fluffy scrambled eggs and spring onions.",
+    tags: ["Egg"],
+    isVeg: false,
+    isEgg: true,
+    hasSizes: false,
+    price: 150
+  },
+  {
+    id: "ch-mixed-fried-rice",
+    categoryId: "chinese",
+    name: "Mixed Fried Rice",
+    icon: "🍲",
+    rating: "4.9",
+    votes: "140",
+    desc: "Grand fried rice with chicken, egg, paneer and assorted vegetables.",
+    tags: ["Non-Veg", "Special"],
+    isVeg: false,
+    hasSizes: false,
+    price: 200
+  },
+  {
+    id: "ch-nirvana-spl-fried-rice",
+    categoryId: "chinese",
+    name: "Nirvana Special Fried Rice",
+    icon: "👑",
+    rating: "5.0",
+    votes: "110",
+    desc: "Chef's deluxe fried rice topped with spicy chicken relish and fried egg.",
+    tags: ["Non-Veg", "Chef Special"],
+    isVeg: false,
+    hasSizes: false,
+    price: 220
+  },
+  {
+    id: "ch-mushroom-fried-rice",
+    categoryId: "chinese",
+    name: "Mushroom Fried Rice",
+    icon: "🍄",
+    rating: "4.7",
+    votes: "85",
+    desc: "Sautéed button mushrooms stir-fried with fragrant long rice.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: false,
+    price: 150
+  },
+  // Gravy / Mains Chinese
+  {
+    id: "ch-paneer-chilli",
+    categoryId: "chinese",
+    name: "Paneer Chilli (Gravy)",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "155",
+    desc: "Fried paneer cubes in luscious spicy garlic soy gravy.",
+    tags: ["Paneer", "Bestseller"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 110 },
+      { key: "full", label: "Full Portion", price: 200 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-chicken-chilli-bone",
+    categoryId: "chinese",
+    name: "Chicken Chilli (Bone Gravy)",
+    icon: "🍗",
+    rating: "4.8",
+    votes: "140",
+    desc: "Bone-in chicken pieces cooked in thick green chilli soy gravy.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 110 },
+      { key: "full", label: "Full Portion", price: 200 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-chicken-chilli-boneless",
+    categoryId: "chinese",
+    name: "Chicken Chilli Boneless (Gravy)",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "190",
+    desc: "Boneless crispy chicken chunks in rich savoury chilli garlic sauce.",
+    tags: ["Non-Veg", "Bestseller"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 220 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-mushroom-chilli",
+    categoryId: "chinese",
+    name: "Mushroom Chilli (Gravy)",
+    icon: "🍄",
+    rating: "4.7",
+    votes: "88",
+    desc: "Button mushrooms simmered in spicy Indo-Chinese dark gravy.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 220 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-potato-chilli",
+    categoryId: "chinese",
+    name: "Potato Chilli",
+    icon: "🥔",
+    rating: "4.5",
+    votes: "65",
+    desc: "Crispy potato wedges in sweet and spicy chilli glaze.",
+    tags: ["Veg"],
+    isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+  {
+    id: "ch-babycorn-chilli",
+    categoryId: "chinese",
+    name: "Babycorn Chilli",
+    icon: "🌽",
+    rating: "4.7",
+    votes: "75",
+    desc: "Tender baby corn pieces tossed in spicy chilli garlic sauce.",
+    tags: ["Veg"],
+    isVeg: true,
+    hasSizes: false,
+    price: 200
+  },
+  {
+    id: "ch-paneer-sweet-sour",
+    categoryId: "chinese",
+    name: "Paneer Sweet and Sour",
+    icon: "🧀",
+    rating: "4.6",
+    votes: "70",
+    desc: "Fried paneer cubes tossed in tangy sweet and sour pineapple glaze.",
+    tags: ["Tangy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 180
+  },
+  {
+    id: "ch-paneer-garlic",
+    categoryId: "chinese",
+    name: "Paneer Garlic",
+    icon: "🧄",
+    rating: "4.8",
+    votes: "85",
+    desc: "Paneer cooked in rich burnt garlic and scallion Chinese gravy.",
+    tags: ["Garlic"],
+    isVeg: true,
+    hasSizes: false,
+    price: 200
+  },
+  {
+    id: "ch-paneer-zinger",
+    categoryId: "chinese",
+    name: "Paneer Zinger",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "90",
+    desc: "Crispy zinger batter coated paneer with spicy dip sauce.",
+    tags: ["Crispy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 200
+  },
+  {
+    id: "ch-chicken-garlic",
+    categoryId: "chinese",
+    name: "Chicken Garlic",
+    icon: "🧄",
+    rating: "4.8",
+    votes: "115",
+    desc: "Juicy chicken in aromatic burnt garlic soy sauce.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: false,
+    price: 240
+  },
+  {
+    id: "ch-chicken-zinger",
+    categoryId: "chinese",
+    name: "Chicken Zinger",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "150",
+    desc: "Ultra crispy fried chicken fillets tossed in spicy seasoning.",
+    tags: ["Non-Veg", "Crispy"],
+    isVeg: false,
+    hasSizes: false,
+    price: 240
+  },
+  {
+    id: "ch-chow-chow-rice",
+    categoryId: "chinese",
+    name: "Chow Chow Rice",
+    icon: "🍚",
+    rating: "4.7",
+    votes: "75",
+    desc: "Fusion combination of stir-fried noodles and fried rice with tangy gravy.",
+    tags: ["Fusion"],
+    isVeg: true,
+    hasSizes: false,
+    price: 160
+  },
+  {
+    id: "ch-veg-manchurian-gravy",
+    categoryId: "chinese",
+    name: "Veg Manchurian",
+    icon: "🥦",
+    rating: "4.7",
+    votes: "115",
+    desc: "Vegetable balls simmered in classic garlic-coriander Manchurian sauce.",
+    tags: ["Popular"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 90 },
+      { key: "full", label: "Full Portion", price: 160 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-paneer-manchurian-gravy",
+    categoryId: "chinese",
+    name: "Paneer Manchurian",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "105",
+    desc: "Paneer cubes in savory ginger garlic Manchurian gravy.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 110 },
+      { key: "full", label: "Full Portion", price: 200 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-chicken-manchurian-gravy",
+    categoryId: "chinese",
+    name: "Chicken Manchurian",
+    icon: "🍗",
+    rating: "4.9",
+    votes: "140",
+    desc: "Fried chicken pieces simmered in rich spiced Manchurian gravy.",
+    tags: ["Non-Veg"],
+    isVeg: false,
+    hasSizes: true,
+    sizes: [
+      { key: "half", label: "Half Portion", price: 120 },
+      { key: "full", label: "Full Portion", price: 220 }
+    ],
+    defaultSize: "half"
+  },
+  {
+    id: "ch-veg-haka-nudal",
+    categoryId: "chinese",
+    name: "Veg Haka Nudal",
+    icon: "🍜",
+    rating: "4.7",
+    votes: "88",
+    desc: "Traditional Hakka style wok-tossed long wheat noodles.",
+    tags: ["Hakka"],
+    isVeg: true,
+    hasSizes: false,
+    price: 160
+  },
+
+  // ==========================================
+  // 20. SOUTH INDIAN & CHAAT
+  // ==========================================
+  {
+    id: "si-plain-dosa",
+    categoryId: "southindian",
+    name: "Classic Plain Dosa",
+    icon: "🥞",
+    rating: "4.7",
+    votes: "115",
+    desc: "Thin, golden and crispy rice crepes served with sambar and fresh chutney.",
+    tags: ["Crispy", "Pure Veg"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "si-masala-dosa",
+    categoryId: "southindian",
+    name: "Traditional Masala Dosa",
+    icon: "🥔",
+    rating: "4.9",
+    votes: "190",
+    desc: "Loaded with our signature lightly spiced potato mash, served with sambar & chutney.",
+    tags: ["Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 110
+  },
+  {
+    id: "si-spl-masala-dosa",
+    categoryId: "southindian",
+    name: "SPECIAL Masala Dosa",
+    icon: "🔥",
+    rating: "4.9",
+    votes: "145",
+    desc: "Lined with a spicy red garlic chutney paste and stuffed with potato mash.",
+    tags: ["Chef Special", "Spicy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 130
+  },
+  {
+    id: "si-paneer-dosa",
+    categoryId: "southindian",
+    name: "PANNER Dosa",
+    icon: "🧀",
+    rating: "4.9",
+    votes: "160",
+    desc: "Packed with gooey melted mozzarella cheese and seasoned paneer inside a crispy shell.",
+    tags: ["Cheesy", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "si-paper-dosa",
+    categoryId: "southindian",
+    name: "Paper Dosa",
+    icon: "🥞",
+    rating: "4.6",
+    votes: "75",
+    desc: "Extra thin, giant paper-crisp golden dosa.",
+    tags: ["Crispy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+  {
+    id: "si-mushroom-dosa",
+    categoryId: "southindian",
+    name: "Mushroom Dosa",
+    icon: "🍄",
+    rating: "4.7",
+    votes: "70",
+    desc: "Crispy dosa stuffed with spiced sautéed mushrooms.",
+    tags: ["Mushroom"],
+    isVeg: true,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "si-nirvana-spl-dosa",
+    categoryId: "southindian",
+    name: "Nirvana Special Dosa",
+    icon: "👑",
+    rating: "4.9",
+    votes: "125",
+    desc: "Grand jumbo dosa loaded with cheese, paneer, sweet corn and potato masala.",
+    tags: ["Chef Special"],
+    isVeg: true,
+    hasSizes: false,
+    price: 150
+  },
+  {
+    id: "si-butter-masala-dosa",
+    categoryId: "southindian",
+    name: "Butter Masala Dosa",
+    icon: "🧈",
+    rating: "4.8",
+    votes: "130",
+    desc: "Crispy dosa roasted in rich butter with potato filling.",
+    tags: ["Butter"],
+    isVeg: true,
+    hasSizes: false,
+    price: 105
+  },
+  {
+    id: "si-paneer-butter-masala-dosa",
+    categoryId: "southindian",
+    name: "Paneer Butter Masala Dosa",
+    icon: "🧀",
+    rating: "4.9",
+    votes: "115",
+    desc: "Butter roasted dosa stuffed with spiced cottage cheese masala.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 115
+  },
+  {
+    id: "si-rava-plain-dosa",
+    categoryId: "southindian",
+    name: "Rava Plain Dosa",
+    icon: "🥞",
+    rating: "4.6",
+    votes: "65",
+    desc: "Crisp semolina and rice batter net dosa with green chillies.",
+    tags: ["Crispy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 100
+  },
+  {
+    id: "si-rava-masala-dosa",
+    categoryId: "southindian",
+    name: "Rava Masala Dosa",
+    icon: "🥞",
+    rating: "4.8",
+    votes: "95",
+    desc: "Crispy semolina dosa filled with spiced potato masala.",
+    tags: ["Popular"],
+    isVeg: true,
+    hasSizes: false,
+    price: 120
+  },
+  {
+    id: "si-rava-paneer-masala-dosa",
+    categoryId: "southindian",
+    name: "Rava Paneer Masala Dosa",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "88",
+    desc: "Semolina crispy crepe packed with paneer filling.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 140
+  },
+  {
+    id: "si-sambhar-idli",
+    categoryId: "southindian",
+    name: "Sambhar with Idli",
+    icon: "🥥",
+    rating: "4.8",
+    votes: "110",
+    desc: "Steamed soft fluffy rice idlis served with piping hot lentil sambhar and coconut chutney.",
+    tags: ["Healthy", "Classic"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+  {
+    id: "si-uttapam",
+    categoryId: "southindian",
+    name: "Uttapam",
+    icon: "🥞",
+    rating: "4.5",
+    votes: "55",
+    desc: "Thick savory South Indian pancake cooked golden.",
+    tags: ["Classic"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "si-masala-uttapam",
+    categoryId: "southindian",
+    name: "Masala Uttapam",
+    icon: "🧅",
+    rating: "4.7",
+    votes: "72",
+    desc: "Thick pancake topped with spiced potato and onion seasoning.",
+    tags: ["Spiced"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+  {
+    id: "si-onion-uttapam",
+    categoryId: "southindian",
+    name: "Onion Uttapam",
+    icon: "🧅",
+    rating: "4.7",
+    votes: "85",
+    desc: "Topped with crunchy diced onions and green chillies.",
+    tags: ["Popular"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+  {
+    id: "si-veg-uttapam",
+    categoryId: "southindian",
+    name: "Veg Uttapam",
+    icon: "🥦",
+    rating: "4.7",
+    votes: "78",
+    desc: "Topped with tomatoes, capsicum, carrots and coriander.",
+    tags: ["Veggie"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+  {
+    id: "si-coconut-uttapam",
+    categoryId: "southindian",
+    name: "Coconut Uttapam",
+    icon: "🥥",
+    rating: "4.7",
+    votes: "62",
+    desc: "Savory pancake topped with fresh grated coconut and mild spices.",
+    tags: ["Coconut"],
+    isVeg: true,
+    hasSizes: false,
+    price: 90
+  },
+  {
+    id: "si-tomato-uttapam",
+    categoryId: "southindian",
+    name: "Tomato Uttapam",
+    icon: "🍅",
+    rating: "4.6",
+    votes: "60",
+    desc: "Topped with juicy ripe tomato slices and green herbs.",
+    tags: ["Tangy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+  {
+    id: "si-upma",
+    categoryId: "southindian",
+    name: "Upma",
+    icon: "🥣",
+    rating: "4.6",
+    votes: "55",
+    desc: "Roasted semolina cooked with mustard seeds, curry leaves and cashews.",
+    tags: ["Healthy"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+  {
+    id: "si-paneer-uttapam",
+    categoryId: "southindian",
+    name: "Paneer Uttapam",
+    icon: "🧀",
+    rating: "4.8",
+    votes: "90",
+    desc: "Thick savory pancake loaded with grated spiced paneer.",
+    tags: ["Paneer"],
+    isVeg: true,
+    hasSizes: false,
+    price: 90
+  },
+  {
+    id: "si-sambhar-vada",
+    categoryId: "southindian",
+    name: "Sambhar Vada",
+    icon: "🍲",
+    rating: "4.8",
+    votes: "105",
+    desc: "Crispy fried medu vadas dipped in spicy lentil sambhar.",
+    tags: ["Crispy", "Popular"],
+    isVeg: true,
+    hasSizes: false,
+    price: 70
+  },
+  {
+    id: "si-samosa-chaat",
+    categoryId: "southindian",
+    name: "Special Samosa Chaat",
+    icon: "🥟",
+    rating: "4.9",
+    votes: "175",
+    desc: "Crushed crunchy samosas topped with hot chole (chickpeas masala), sweet yogurt, tamarind & mint chutney.",
+    tags: ["Chaat", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+
+  // ==========================================
+  // 21. SHIVHARI SWEETS SPECIAL
+  // ==========================================
+  {
+    id: "swt-kalakand",
+    categoryId: "sweets",
+    name: "Kalakand (कलाकंद)",
+    icon: "🤍",
+    rating: "4.9",
+    votes: "140",
+    desc: "Traditional soft grainy paneer and condensed milk sweet infused with cardamom (Price per kg).",
+    tags: ["Per Kg", "Pure Ghee"],
+    isVeg: true,
+    hasSizes: false,
+    price: 500
+  },
+  {
+    id: "swt-kaju-barfi",
+    categoryId: "sweets",
+    name: "Kaju Barfi (काजू बर्फी)",
+    icon: "💎",
+    rating: "5.0",
+    votes: "210",
+    desc: "Premium diamond-shaped sweet made with rich roasted cashews & silver vark (Price per kg).",
+    tags: ["Per Kg", "Premium", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 1000
+  },
+  {
+    id: "swt-cream-chop",
+    categoryId: "sweets",
+    name: "Cream Chop (क्रीम चॉप)",
+    icon: "🧁",
+    rating: "4.8",
+    votes: "95",
+    desc: "Delicious chhena sweet stuffed with fresh sweet clotted cream and pistachios (Price per kg).",
+    tags: ["Per Kg", "Popular"],
+    isVeg: true,
+    hasSizes: false,
+    price: 380
+  },
+  {
+    id: "swt-rasmalai",
+    categoryId: "sweets",
+    name: "Rasmalai (रसमलाई)",
+    icon: "🥛",
+    rating: "4.9",
+    votes: "185",
+    desc: "Spongy chhena discs soaked in chilled thickened saffron & cardamom milk (Per Piece).",
+    tags: ["Per Piece", "Bestseller"],
+    isVeg: true,
+    hasSizes: false,
+    price: 30
+  },
+  {
+    id: "swt-gajar-halwa",
+    categoryId: "sweets",
+    name: "Gajar Halwa (गाजर का हलवा)",
+    icon: "🥕",
+    rating: "4.9",
+    votes: "160",
+    desc: "Slow-cooked red carrots with pure desi ghee, khoya, cashews and cardamom (Price per kg).",
+    tags: ["Per Kg", "Desi Ghee"],
+    isVeg: true,
+    hasSizes: false,
+    price: 500
+  },
+  {
+    id: "swt-chhena-piece",
+    categoryId: "sweets",
+    name: "Chhena Piece (छेना पीस)",
+    icon: "🍥",
+    rating: "4.8",
+    votes: "110",
+    desc: "Soft and juicy fresh cottage cheese sweet soaked in light sugar syrup (Per Piece).",
+    tags: ["Per Piece"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+  {
+    id: "swt-chhena-roll",
+    categoryId: "sweets",
+    name: "Chhena Roll (छेना रोल)",
+    icon: "🌀",
+    rating: "4.8",
+    votes: "98",
+    desc: "Delicate chhena rolls stuffed with sweetened mawa and nuts (Price per kg).",
+    tags: ["Per Kg"],
+    isVeg: true,
+    hasSizes: false,
+    price: 500
+  },
+
+  // ==========================================
+  // 22. SHIVHARI BIRTHDAY & PARTY ITEMS
+  // ==========================================
+  {
+    id: "pty-big-balloon",
+    categoryId: "birthday",
+    name: "Big Balloon (50 pcs) (बड़ा गुब्बारा)",
+    icon: "🎈",
+    rating: "4.8",
+    votes: "80",
+    desc: "Pack of 50 high-quality large colorful celebration balloons.",
+    tags: ["50 Pcs", "Party"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
+  },
+  {
+    id: "pty-small-balloon",
+    categoryId: "birthday",
+    name: "Small Balloon (50 pcs) (छोटा गुब्बारा)",
+    icon: "🎈",
+    rating: "4.7",
+    votes: "65",
+    desc: "Pack of 50 small multi-color party decoration balloons.",
+    tags: ["50 Pcs"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+  {
+    id: "pty-heart-balloon",
+    categoryId: "birthday",
+    name: "Heart Balloon (दिल वाला गुब्बारा)",
+    icon: "💝",
+    rating: "4.9",
+    votes: "110",
+    desc: "Special heart-shaped romantic red helium foil balloon (1 Piece).",
+    tags: ["Foil Balloon"],
+    isVeg: true,
+    hasSizes: false,
+    price: 15
+  },
+  {
+    id: "pty-birthday-cap",
+    categoryId: "birthday",
+    name: "Birthday cap (बर्थडे कैप / टोपी)",
+    icon: "🥳",
+    rating: "4.7",
+    votes: "90",
+    desc: "Festive celebration party cone cap with shiny foil print.",
+    tags: ["Celebration"],
+    isVeg: true,
+    hasSizes: false,
+    price: 30
+  },
+  {
+    id: "pty-magic-candle",
+    categoryId: "birthday",
+    name: "Magic Candle (मैजिक मोमबत्ती)",
+    icon: "🕯️",
+    rating: "4.8",
+    votes: "95",
+    desc: "Fun relighting magical cake candles pack for birthday surprise.",
+    tags: ["Magic"],
+    isVeg: true,
+    hasSizes: false,
+    price: 15
+  },
+  {
+    id: "pty-numbering-candle",
+    categoryId: "birthday",
+    name: "Numbering Candle (नंबर वाली मोमबत्ती)",
+    icon: "🎂",
+    rating: "4.8",
+    votes: "120",
+    desc: "Numeric age milestone gold glitter cake candle (Specify number in notes).",
+    tags: ["Cake Decor"],
+    isVeg: true,
+    hasSizes: false,
+    price: 10
+  },
+  {
+    id: "pty-rose-candle",
+    categoryId: "birthday",
+    name: "Rose Candle (गुलाब वाली मोमबत्ती)",
+    icon: "🌹",
+    rating: "4.9",
+    votes: "75",
+    desc: "Elegant blooming musical lotus / rose candle with sparkler and chime.",
+    tags: ["Musical"],
+    isVeg: true,
+    hasSizes: false,
+    price: 50
+  },
+  {
+    id: "pty-magical-knife",
+    categoryId: "birthday",
+    name: "Magical knife (जादुई चाकू)",
+    icon: "🔪",
+    rating: "4.7",
+    votes: "60",
+    desc: "Special decorative glowing celebration cake cutting knife.",
+    tags: ["Party Tool"],
+    isVeg: true,
+    hasSizes: false,
+    price: 60
+  },
+  {
+    id: "pty-ribbon",
+    categoryId: "birthday",
+    name: "Ribbon (रिबन / फीता)",
+    icon: "🎀",
+    rating: "4.6",
+    votes: "50",
+    desc: "Glossy gift decoration curling ribbon roll.",
+    tags: ["Decor"],
+    isVeg: true,
+    hasSizes: false,
+    price: 10
+  },
+  {
+    id: "pty-snow-spray",
+    categoryId: "birthday",
+    name: "Snow spray (स्नो स्प्रे)",
+    icon: "❄️",
+    rating: "4.8",
+    votes: "130",
+    desc: "Party celebration artificial snow spray can.",
+    tags: ["Party Popper"],
+    isVeg: true,
+    hasSizes: false,
+    price: 40
+  },
+  {
+    id: "pty-wall-balloon",
+    categoryId: "birthday",
+    name: "Wall Balloon (दीवार पर लगाने वाला गुब्बारा)",
+    icon: "🎈",
+    rating: "4.9",
+    votes: "85",
+    desc: "Complete 'HAPPY BIRTHDAY' metallic foil balloon garland banner for wall decor.",
+    tags: ["Banner Decor"],
+    isVeg: true,
+    hasSizes: false,
+    price: 150
+  },
+  {
+    id: "pty-birthday-lighter",
+    categoryId: "birthday",
+    name: "Birthday lighter (बर्थडे लाइटर)",
+    icon: "🔥",
+    rating: "4.6",
+    votes: "45",
+    desc: "Long neck safe utility spark lighter for candles and sparkles.",
+    tags: ["Utility"],
+    isVeg: true,
+    hasSizes: false,
+    price: 20
+  },
+  {
+    id: "pty-party-paper",
+    categoryId: "birthday",
+    name: "Party paper (पार्टी पेपर / पॉपर)",
+    icon: "🎉",
+    rating: "4.9",
+    votes: "145",
+    desc: "Large air compressed party confetti popper for celebratory moments.",
+    tags: ["Confetti Popper"],
+    isVeg: true,
+    hasSizes: false,
+    price: 80
   }
 ];
 
@@ -1047,7 +5097,7 @@ const APP_CONFIG = {
   location: "Bikramganj, Bihar",
   minOrderAmount: 99,
   deliveryTimeEstimate: "20-25 mins",
-  deliveryFee: 0, // Free or standard note
+  deliveryFee: 0,
   whatsappNumber: "919128256430",
   whatsappCatalogUrl: "https://wa.me/p/26847706081597311/128256430854321",
   currencySymbol: "₹"
