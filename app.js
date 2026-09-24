@@ -85,12 +85,17 @@
 
   // ========== Render Circular Category Bubbles ==========
   function renderCircularCategories() {
-    circularCategoryScroll.innerHTML = MENU_CATEGORIES.map(cat => `
-      <div class="circular-cat-item ${activeCatId === cat.id ? 'active' : ''}" data-cat-id="${cat.id}">
-        <div class="cat-circle-avatar">${cat.icon}</div>
-        <span class="cat-circle-title">${cat.name}</span>
-      </div>
-    `).join('');
+    circularCategoryScroll.innerHTML = MENU_CATEGORIES.map(cat => {
+      const avatarContent = cat.image
+        ? `<img src="${cat.image}" alt="${cat.name}" class="cat-circle-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" /><span class="cat-circle-emoji" style="display:none;">${cat.icon}</span>`
+        : `<span class="cat-circle-emoji">${cat.icon}</span>`;
+      return `
+        <div class="circular-cat-item ${activeCatId === cat.id ? 'active' : ''}" data-cat-id="${cat.id}">
+          <div class="cat-circle-avatar">${avatarContent}</div>
+          <span class="cat-circle-title">${cat.name}</span>
+        </div>
+      `;
+    }).join('');
   }
 
   // ========== Render Jump Menu Options ==========
@@ -273,7 +278,9 @@
         </div>
 
         <div class="item-right-col">
-          <div class="item-thumbnail-box">${item.icon || '🍽️'}</div>
+          <div class="item-thumbnail-box">
+            ${item.image ? `<img src="${item.image}" alt="${item.name}" class="item-food-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" /><span class="item-thumb-emoji" style="display:none;">${item.icon || '🍽️'}</span>` : `<span class="item-thumb-emoji">${item.icon || '🍽️'}</span>`}
+          </div>
           <div class="swiggy-add-btn-wrap">
             ${addButtonHtml}
             ${customisableNote}
